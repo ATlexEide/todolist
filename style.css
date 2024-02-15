@@ -1,0 +1,19 @@
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input,
+form label,
+form textarea,
+form button {
+    width: 200px;
+}
+
+#addNoteBtn {
+    width: 200px;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
