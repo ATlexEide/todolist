@@ -9,6 +9,60 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <header>
+    <h1>Projects</h1>
+  </header>
+    <div id="project-container">
+      <!-- TEST | REMOVE LATER -->
+      <ul id="project-list"></ul>
+      <button class="card" id="addProjectBtn"><i class="fa-solid fa-plus fa-5x"></i></button>
+    </div>
 
+
+
+
+
+<dialog id="addProjectDialog">
+  <fieldset>
+    <legend>Add New Project</legend>
+        <form id="addProjectForm" method="dialog">
+        <label for="title">Title:</label><input id="addProjectTitle" type="text">
+        <label for="desc">Description:</label><textarea id="addProjectDesc" type="text"></textarea>
+        <label for="priority">Priority:</label>
+        <select id="addProjectPriority" name="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+        <label for="addProjectDueDate">Due:</label>
+        <input id="addProjectDueDate" type="date">
+      </select>
+</fieldset>
+  <button id="submitProjectBtn" type="submit">Submit</button>
+  </form>
+</dialog>
+
+
+
+<dialog id="addNoteDialog">
+  <fieldset>
+    <legend>Add new note</legend>
+        <form id="addNoteForm" method="dialog">
+        <label for="addNoteTitle">Title:</label><input id="addNoteTitle" type="text">
+        <textarea id="addNoteText" type="text" placeholder="Write a note.."></textarea>
+    
+
+        <label for="addNoteDueDate">Due:</label>
+        <input id="addNoteDueDate" type="date">
+        <label for="priority">Priority:</label>
+        <select id="addNotePriority" name="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+  </fieldset>
+      <button id="submitAddBtn" type="submit">Submit</button>
+      </form>
+</dialog>
 </body>
 </html>
