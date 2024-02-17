@@ -8,6 +8,7 @@ class Project {
         this.desc = desc;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.isDisplayed = false;
     }
     get title() {
         return super.title;
@@ -33,7 +34,7 @@ document.getElementById('addProjectBtn').addEventListener('click', () => {
 })
 const submitBtn = document.getElementById('submitProjectBtn')
 submitBtn.addEventListener('click', () => {
-    projects.push(new Project(addProjectTitle.value, addProjectDesc.value, addProjectPriority.value, addProjectDueDate.value))
+    projects.push(new Project(addProjectTitle.value, addProjectDesc.value, addProjectPriority.value, addProjectDueDate.value, false))
     console.log(projects)
     displayProjectList()
 })
