@@ -13,22 +13,30 @@ body {
 
 header {
     text-align: center;
+    color: white;
 }
 
 #project-container {
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
+}
+
+#project-list {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 ul,
 li {
-    width: 0px;
-    height: 0px;
     padding: 0px;
     margin: 0px;
+    list-style-type: none;
 }
 
+
 form {
+    width: 20vw;
+    height: 50vh;
     color: black;
     display: flex;
     flex-direction: column;
@@ -38,18 +46,15 @@ form input,
 form label,
 form textarea,
 form button {
-
+    padding: .5rem;
     width: 200px;
 }
 
 #addNoteBtn,
 #addProjectBtn {
     border: solid 2px white;
+    margin-right: auto;
 
-}
-
-#project-list {
-    width: 100%;
 }
 
 .card {
@@ -57,9 +62,14 @@ form button {
     background-color: var(--card-color);
     border: solid 2px grey;
     border-radius: 7px;
-    width: 200px;
-    height: 350px;
+    margin: 4px;
+    width: 250px;
+    height: 250px;
+}
+
+button .card {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
 }
