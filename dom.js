@@ -4,7 +4,7 @@ export function displayProjectList() {
     const container = document.getElementById('project-list');
     // container.innerHTML = '';
     for (let i = 0; i < projects.length; i++) {
-        if (!projects[i].displayed) {
+        if (!projects[i].isDisplayed) {
             const proj = document.createElement('li');
             proj.innerHTML = `
             <a href="#" class="project-card">
@@ -17,7 +17,7 @@ export function displayProjectList() {
             </div>
             </a>`;
             container.appendChild(proj);
-            projects[i].displayed = true;
+            projects[i].isDisplayed = true;
         }
     }
 }
