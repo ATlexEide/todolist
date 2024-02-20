@@ -31,9 +31,13 @@ export function displayProjectList() {
 
 export function updateDialogContent(i) {
     const dialog = document.getElementById('projectInfo')
+    // TODO: Replace innerHTML with safer methods later
     dialog.innerHTML = `<div id="project-dialog-container">
     <form tabindex="0" id="project-dialog-form">
+    <div>
+    <button id="exit-button"><i style="color:white" class="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></button>
     <input value="${projects[i].title}">
+    </div>
     <details>
     <h3>Description: ${projects[i].desc}</h3>
     <h4>Priority: ${projects[i].priority}</h4>
