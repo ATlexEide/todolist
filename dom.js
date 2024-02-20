@@ -1,4 +1,4 @@
-import { projects, openDialog } from "./note.js";
+import { projects, openDialog, displayNotes } from "./note.js";
 
 export function displayProjectList() {
     const container = document.getElementById('project-list');
@@ -35,7 +35,7 @@ export function updateDialogContent(i) {
     dialog.innerHTML = `<div id="project-dialog-container">
     <form tabindex="0" id="project-dialog-form">
     <div id="dialog-header">
-    <button id="exit-button"><i style="color:white" class="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></button>
+    <button type="submit" id="exit-button"><i style="color:white" class="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></button>
     <input value="${projects[i].title}">
     </div>
     <details>
@@ -44,8 +44,12 @@ export function updateDialogContent(i) {
     <h5>Due: ${projects[i].dueDate}</h5>
     </details>
 
-    <button id="addNoteBtn"><i class="fa-solid fa-plus fa-2x"></i></button>
     </form>
+    <div id="project-note-container">
+    <ul id="note-list"></ul>
+    <button class="card" id="addNoteBtn"><i class="fa-solid fa-plus fa-5x"></i></button>
+    </div>
     </div>
     `
+    displayNotes(i)
 }
