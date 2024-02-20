@@ -31,8 +31,9 @@ export function displayProjectList() {
 
 export function updateDialogContent(i) {
     const dialog = document.getElementById('projectInfo')
-    dialog.innerHTML = `
-    <h2>${projects[i].title}</h2>
+    dialog.innerHTML = `<div id="project-dialog-container">
+    <form tabindex="0" id="project-dialog-form">
+    <input value="${projects[i].title}">
     <details>
     <h3>Description: ${projects[i].desc}</h3>
     <h4>Priority: ${projects[i].priority}</h4>
@@ -40,5 +41,7 @@ export function updateDialogContent(i) {
     </details>
 
     <button id="addNoteBtn"><i class="fa-solid fa-plus fa-2x"></i></button>
+    </form>
+    </div>
     `
 }
