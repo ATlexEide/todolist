@@ -1,6 +1,7 @@
 import { displayProjectList, updateDialogContent } from "./dom.js";
 
 export let projects = []
+export let notes = [{ project: '123', title: 'test note', text: 'Make the note functionality work', priority: 'high' }, { project: '123', title: 'test note', text: 'Check if functionality work', priority: 'high' }]
 
 class Project {
     constructor(title, desc, priority, dueDate) {
@@ -65,4 +66,21 @@ function showAddNoteDialog() {
 }
 function addNote() {
 
+}
+
+export function displayNotes(i) {
+    const container = document.getElementById('note-list')
+    container.innerHTML = ``;
+    for (const note of notes) {
+        if (note.project === projects[i].title) {
+            const noteLi = document.createElement('li')
+            noteLi.setAttribute('class', 'card')
+            noteLi.innerHTML = `
+            <h2>${note.title}</h2>
+            <h3>Priority: ${note.priority}</h3>
+            <p>${note.text}</p>
+            `
+            container.appendChild(noteLi)
+        }
+    }
 }
