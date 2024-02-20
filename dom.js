@@ -1,4 +1,4 @@
-import { projects } from "./note.js";
+import { projects, openDialog } from "./note.js";
 
 export function displayProjectList() {
     const container = document.getElementById('project-list');
@@ -6,9 +6,10 @@ export function displayProjectList() {
     for (let i = 0; i < projects.length; i++) {
         if (!projects[i].isDisplayed) {
             const proj = document.createElement('li');
+            // TODO: Replace innerHTML with safer methods later
             proj.innerHTML = `
-            <a href="#" class="project-card">
-            <div class="card" id="${i}">
+            <a href="#" class="project-card" id="${i}">
+            <div class="card">
                 <h3>Title: ${projects[i].title}</h3>
                 <div>Desscription:</div>
                 <p>${projects[i].desc}</p>
@@ -24,4 +25,20 @@ export function displayProjectList() {
             projects[i].isDisplayed = true;
         }
     }
+    openDialog()
+}
+
+
+export function updateDialogContent(i) {
+    const dialog = document.getElementById('projectInfo')
+    dialog.innerHTML = `
+    <h2>${projects[i].title}</h2>
+    <details>
+    <h3>Description: ${projects[i].desc}</h3>
+    <h4>Priority: ${projects[i].priority}</h4>
+    <h5>Due: ${projects[i].dueDate}</h5>
+    </details>
+
+    <button id="addNoteBtn"><i class="fa-solid fa-plus fa-2x"></i></button>
+    `
 }

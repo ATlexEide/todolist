@@ -37,7 +37,7 @@
         <label for="addProjectDueDate">Due:</label>
         <input id="addProjectDueDate" type="date">
       </select>
-      <button id="submitProjectBtn" type="submit">Submit</button>
+      <button id="submitProjectBtn" type="submit">Add</button>
 </fieldset>
   </form>
 </dialog>
@@ -48,21 +48,26 @@
   <fieldset>
     <legend>Add new note</legend>
         <form id="addNoteForm" method="dialog">
-        <label for="addNoteTitle">Title:</label><input id="addNoteTitle" type="text">
+
+        <input id="addNoteTitle" type="text" placeholder="Title">
         <textarea id="addNoteText" type="text" placeholder="Write a note.."></textarea>
     
 
-        <label for="addNoteDueDate">Due:</label>
-        <input id="addNoteDueDate" type="date">
+        <!-- <label for="addNoteDueDate">Due:</label>
+        <input id="addNoteDueDate" type="date"> -->
         <label for="priority">Priority:</label>
         <select id="addNotePriority" name="priority">
         <option value="low">Low</option>
         <option value="medium">Medium</option>
         <option value="high">High</option>
       </select>
+      <button id="submitAddBtn" type="submit">Add</button>
   </fieldset>
-      <button id="submitAddBtn" type="submit">Submit</button>
       </form>
+</dialog>
+<dialog id="projectInfo">
+  <label for="addNoteBtn">Add new note:</label>
+  <button id="addNoteBtn"><i class="fa-solid fa-plus fa-2x"></i></button>
 </dialog>
 </body>
 </html>
