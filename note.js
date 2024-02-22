@@ -75,7 +75,7 @@ document.getElementById('submitNoteBtn').addEventListener('click', () => {
 
 export function displayNotes() {
     const noteContainer = document.getElementById('note-list');
-    noteContainer.innerHTML = '';
+    noteContainer.textContent = '';
     for (const note of projects[currIndex].notes) {
         const noteLi = document.createElement('li');
         noteLi.setAttribute('class', 'card')
@@ -87,7 +87,7 @@ export function displayNotes() {
         noteContainer.appendChild(noteLi);
         if (!note.priority) {
             const notePriority = document.getElementById('note-priority');
-            notePriority.innerHTML = '';
+            notePriority.textContent = '';
         }
     }
 }
