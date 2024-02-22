@@ -48,7 +48,6 @@ export function getIndexOfClickedCardAndOpenModal() {
         let index = e.currentTarget.id;  // Get ID of Clicked Element
         currIndex = index
         displayProjectDialog(currIndex)
-        console.log('clicked: ', currIndex)
     }
     for (let card of cards) {
         card.addEventListener("click", cardPressed);
@@ -68,7 +67,6 @@ export function drawAddNoteDialog(currIndex) {
 }
 function addNote() {
     projects[currIndex].notes.push(new Note(addNoteTitle.value, addNoteText.value, addNotePriority.value))
-    console.log(projects[currIndex])
     displayNotes()
 }
 document.getElementById('submitNoteBtn').addEventListener('click', () => {
@@ -79,7 +77,6 @@ export function displayNotes() {
     const noteContainer = document.getElementById('note-list');
     noteContainer.innerHTML = '';
     for (const note of projects[currIndex].notes) {
-        console.log('Note')
         const noteLi = document.createElement('li');
         noteLi.setAttribute('class', 'card')
         noteLi.innerHTML = `
