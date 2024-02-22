@@ -91,7 +91,7 @@ export function displayProjectDialog(index) {
     dialog.appendChild(container);
     button.appendChild(i);
     header.appendChild(button)
-    header.appendChild(input);
+    form.appendChild(input);
     form.appendChild(header);
     details.appendChild(h3);
     details.appendChild(h4);
