@@ -34,7 +34,7 @@ export function displayProjectDialog(index) {
     dialog.innerHTML = `<div id="project-dialog-container">
     <form tabindex="0" id="project-dialog-form">
     <div id="dialog-header">
-    <button type="submit" id="exit-button"><i style="color:white" class="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></button>
+    <button id="exit-button"><i style="color:white" class="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></button>
     <input id="project-title" value="${projects[index].title}">
     </div>
     <details>
@@ -51,6 +51,9 @@ export function displayProjectDialog(index) {
     </div>
     </div>
     `
+    document.getElementById('exit-button').addEventListener('click', () => {
+        dialog.close()
+    })
     displayNotes()
     dialog.showModal()
     drawAddNoteDialog()
