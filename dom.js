@@ -4,7 +4,7 @@ import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, display
 // Display projects as cards on page
 export function displayProjectList() {
     const container = document.getElementById('project-list');
-    container.innerHTML = '';
+    container.textContent = '';
     for (let i = 0; i < projects.length; i++) {
         const proj = document.createElement('li');
         const a = document.createElement('a');
