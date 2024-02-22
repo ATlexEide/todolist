@@ -11,7 +11,7 @@ class Project {
         // ???
         this.isDisplayed = false;
         // ???
-        this.notes = [new Note('Title', 'Text')];
+        this.notes = [new Note('Test note', 'Text'), new Note('Test note 2', 'Text', 'Medium')];
     }
     get title() {
         return super.title;
