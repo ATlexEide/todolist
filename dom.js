@@ -45,6 +45,7 @@ export function updateDialogContent(i) {
     </details>
 
     </form>
+    <h2>Notes:</h2>
     <div id="project-note-container">
     <ul id="note-list"></ul>
     <button class="card" id="addNoteBtn"><i class="fa-solid fa-plus fa-5x"></i></button>
