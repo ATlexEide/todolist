@@ -56,7 +56,7 @@ export function getIndexOfClickedCardAndOpenModal() {
 
 
 export function drawAddNoteDialog(currIndex) {
-    document.getElementById('addNoteBtn').addEventListener('click', () => {
+    document.getElementById('addNoteButton').addEventListener('click', () => {
         addNoteTitle.value = '';
         addNoteText.value = '';
         addNotePriority.value = '';
