@@ -7,21 +7,39 @@ export function displayProjectList() {
     container.innerHTML = '';
     for (let i = 0; i < projects.length; i++) {
         const proj = document.createElement('li');
-        // TODO: Replace innerHTML with safer methods later
-        proj.innerHTML = `
-            <a href="#" class="project-card" id="${i}">
-            <div class="card">
-                <h3>Title: ${projects[i].title}</h3>
-                <div>Desscription:</div>
-                <p>${projects[i].desc}</p>
-                <div>Priority: ${projects[i].priority}</div>
-                <div id="${i}-due">Due by ${projects[i].dueDate}</div>
-            </div>
-            </a>`;
+        const a = document.createElement('a');
+        a.setAttribute('href', '#');
+        a.setAttribute('class', 'project-card');
+        a.setAttribute('id', `${i}`);
+        const div = document.createElement('div');
+        div.setAttribute('class', 'card');
+        const h3 = document.createElement('h3');
+        h3.textContent = `Title: ${projects[i].title}`;
+        const desc = document.createElement('div');
+        desc.textContent = `Description:`;
+        const p = document.createElement('p');
+        p.textContent = `${projects[i].desc}`;
+        const priority = document.createElement('div');
+        priority.setAttribute('id', 'priority')
+        priority.textContent = `Priority: ${projects[i].priority}`;
+        const due = document.createElement('div');
+        due.setAttribute('id', `${i}-due`);
+        due.textContent = `Due by ${projects[i].dueDate}`;
+        a.appendChild(div);
+        div.appendChild(h3)
+        div.appendChild(desc)
+        div.appendChild(p)
+        div.appendChild(priority)
+        div.appendChild(due)
+        proj.appendChild(a);
         container.appendChild(proj);
         if (!projects[i].dueDate) {
             const due = document.getElementById(`${i}-due`);
-            due.innerHTML = '';
+            due.textContent = '';
+        }
+        if (!projects[i].priority) {
+            const priority = document.getElementById(`priority`);
+            priority.textContent = '';
         }
     }
     getIndexOfClickedCardAndOpenModal()
@@ -29,28 +47,63 @@ export function displayProjectList() {
 
 // Display and update content in project dialog
 export function displayProjectDialog(index) {
-    const dialog = document.getElementById('projectInfo')
-    // TODO: Replace innerHTML with safer methods later
-    dialog.innerHTML = `<div id="project-dialog-container">
-    <form tabindex="0" id="project-dialog-form">
-    <div id="dialog-header">
-    <button id="exit-button"><i style="color:white" class="fa fa-angle-double-left fa-3x" aria-hidden="true"></i></button>
-    <input id="project-title" value="${projects[index].title}">
-    </div>
-    <details>
-    <h3>Description: ${projects[index].desc}</h3>
-    <h4>Priority: ${projects[index].priority}</h4>
-    <h5>Due: ${projects[index].dueDate}</h5>
-    </details>
+    const dialog = document.getElementById('projectInfo');
+    const container = document.createElement('div');
+    container.setAttribute('id', 'project-dialog-container');
+    const form = document.createElement('form');
+    form.setAttribute('tabindex', '0');
+    form.setAttribute('id', 'project-dialog-form');
+    const header = document.createElement('div');
+    header.setAttribute('id', 'header');
+    const button = document.createElement('button');
+    button.setAttribute('id', 'exit-button');
+    const i = document.createElement('i');
+    i.setAttribute('style', 'color:white');
+    i.setAttribute('class', 'fa fa-angle-double-left fa-3x');
+    i.setAttribute('aria-hidden', 'true');
+    const input = document.createElement('input');
+    input.setAttribute('id', 'project-title');
+    input.setAttribute('value', `${projects[index].title}`);
+    const details = document.createElement('details');
+    const h3 = document.createElement('h3');
+    h3.textContent = `Description: ${projects[index].desc}`;
+    const h4 = document.createElement('h4');
+    h4.textContent = `Priority: ${projects[index].priority}`;
+    const h5 = document.createElement('h5');
+    h5.textContent = `Due: ${projects[index].dueDate}`;
 
-    </form>
-    <h2>Notes:</h2>
-    <div id="project-note-container">
-    <ul id="note-list"></ul>
-    <button class="card" id="addNoteBtn"><i class="fa-solid fa-plus fa-5x"></i></button>
-    </div>
-    </div>
-    `
+
+    const h2 = document.createElement('h2');
+    h2.textContent = 'Notes:';
+    const div = document.createElement('div');
+    div.setAttribute('id', 'project-note-container');
+    const ul = document.createElement('ul');
+    ul.setAttribute('id', 'note-list');
+    const addButton = document.createElement('button');
+    addButton.setAttribute('class', 'card');
+    addButton.setAttribute('id', 'addNoteButton');
+    const iNote = document.createElement('i');
+    iNote.setAttribute('class', 'fa-solid fa-plus fa-5x');
+
+
+
+    container.appendChild(form);
+    dialog.appendChild(container);
+    button.appendChild(i);
+    header.appendChild(button)
+    header.appendChild(input);
+    form.appendChild(header);
+    details.appendChild(h3);
+    details.appendChild(h4);
+    details.appendChild(h5);
+    form.appendChild(details)
+
+    container.appendChild(div)
+    div.appendChild(ul);
+    div.appendChild(addButton)
+    addButton.appendChild(iNote)
+
+
     document.getElementById('exit-button').addEventListener('click', () => {
         dialog.close()
     })
