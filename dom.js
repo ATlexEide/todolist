@@ -48,6 +48,7 @@ export function displayProjectList() {
 // Display and update content in project dialog
 export function displayProjectDialog(index) {
     const dialog = document.getElementById('projectInfo');
+    dialog.textContent = '';
     const container = document.createElement('div');
     container.setAttribute('id', 'project-dialog-container');
     const form = document.createElement('form');
