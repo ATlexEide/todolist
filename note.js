@@ -79,11 +79,16 @@ export function displayNotes() {
     for (const note of projects[currIndex].notes) {
         const noteLi = document.createElement('li');
         noteLi.setAttribute('class', 'card')
-        noteLi.innerHTML = `
-        <h2>${note.title}</h2>
-        <p>${note.text}</p>
-        <div id="note-priority">Priority: ${note.priority}</div>
-        `;
+        const h2 = document.createElement('h2');
+        h2.textContent = `${note.title}`;
+        const p = document.createElement('p');
+        p.textContent = `${note.text}`;
+        const div = document.createElement('div');
+        div.setAttribute('id', 'note-priority');
+        div.textContent = `Priority: ${note.priority}`;
+        noteLi.appendChild(h2)
+        noteLi.appendChild(p)
+        noteLi.appendChild(div)
         noteContainer.appendChild(noteLi);
         if (!note.priority) {
             const notePriority = document.getElementById('note-priority');
