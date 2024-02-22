@@ -11,7 +11,7 @@ class Project {
         // ???
         this.isDisplayed = false;
         // ???
-        this.notes = ['testNote', 'Testnote'];
+        this.notes = [new Note('Title', 'Text')];
     }
     get title() {
         return super.title;
@@ -20,10 +20,8 @@ class Project {
         super.title = title
     }
 };
-class Note extends Project {
-    constructor(project, title, text, priority) {
-        super(project)
-        this.project = project
+class Note {
+    constructor(title, text, priority) {
         this.title = title;
         this.text = text;
         this.priority = priority;
@@ -56,3 +54,43 @@ export function getIndexOfClickedCardAndOpenModal() {
         card.addEventListener("click", cardPressed);
     }
 };
+
+
+export function drawAddNoteDialog(currIndex) {
+    document.getElementById('addNoteBtn').addEventListener('click', () => {
+        addNoteTitle.value = '';
+        addNoteText.value = '';
+        addNotePriority.value = '';
+        const d = document.getElementById('addNoteDialog')
+        d.showModal()
+
+    })
+}
+function addNote() {
+    projects[currIndex].notes.push(new Note(addNoteTitle.value, addNoteText.value, addNotePriority.value))
+    console.log(projects[currIndex])
+    displayNotes()
+}
+document.getElementById('submitNoteBtn').addEventListener('click', () => {
+    addNote()
+})
+
+export function displayNotes() {
+    const noteContainer = document.getElementById('note-list');
+    noteContainer.innerHTML = '';
+    for (const note of projects[currIndex].notes) {
+        console.log('Note')
+        const noteLi = document.createElement('li');
+        noteLi.setAttribute('class', 'card')
+        noteLi.innerHTML = `
+        <h2>${note.title}</h2>
+        <p>${note.text}</p>
+        <div id="note-priority">Priority: ${note.priority}</div>
+        `;
+        noteContainer.appendChild(noteLi);
+        if (!note.priority) {
+            const notePriority = document.getElementById('note-priority');
+            notePriority.innerHTML = '';
+        }
+    }
+}
