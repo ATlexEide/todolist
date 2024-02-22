@@ -1,7 +1,6 @@
-import { displayProjectList, updateDialogContent } from "./dom.js";
+import { displayProjectList, displayProjectDialog } from "./dom.js";
 
 export let projects = []
-export let notes = [{ project: '123', title: 'test note', text: 'Make the note functionality work', priority: 'high' }, { project: '123', title: 'test note', text: 'Check if functionality work', priority: 'high' }]
 
 class Project {
     constructor(title, desc, priority, dueDate) {
@@ -9,8 +8,10 @@ class Project {
         this.desc = desc;
         this.dueDate = dueDate;
         this.priority = priority;
+        // ???
         this.isDisplayed = false;
-        this.notes = [];
+        // ???
+        this.notes = ['testNote', 'Testnote'];
     }
     get title() {
         return super.title;
@@ -20,7 +21,9 @@ class Project {
     }
 };
 class Note extends Project {
-    constructor(title, text, priority) {
+    constructor(project, title, text, priority) {
+        super(project)
+        this.project = project
         this.title = title;
         this.text = text;
         this.priority = priority;
@@ -37,50 +40,19 @@ document.getElementById('addProjectBtn').addEventListener('click', () => {
 const submitBtn = document.getElementById('submitProjectBtn')
 submitBtn.addEventListener('click', () => {
     projects.push(new Project(addProjectTitle.value, addProjectDesc.value, addProjectPriority.value, addProjectDueDate.value, false))
-    console.log(projects)
     displayProjectList()
 })
-export function openDialog() {
-    const cards = document.querySelectorAll('.project-card')
+
+let currIndex = null;
+export function getIndexOfClickedCardAndOpenModal() {
+    const cards = document.getElementsByClassName('project-card');
     const cardPressed = e => {
-        showProjectDialog(e.currentTarget.id)
+        let index = e.currentTarget.id;  // Get ID of Clicked Element
+        currIndex = index
+        displayProjectDialog(currIndex)
+        console.log('clicked: ', currIndex)
     }
-    for (const card of cards) {
-        card.addEventListener('click', cardPressed)
+    for (let card of cards) {
+        card.addEventListener("click", cardPressed);
     }
-}
-
-function showProjectDialog(i) {
-    updateDialogContent(i)
-    const dialog = document.getElementById('projectInfo')
-    dialog.showModal()
-    const addNoteBtn = document.getElementById('addNoteBtn')
-    addNoteBtn.addEventListener('click', () => {
-        console.log('yipp')
-        showAddNoteDialog()
-    })
-}
-function showAddNoteDialog() {
-    const dialog = document.getElementById('addNoteDialog');
-    dialog.showModal()
-}
-function addNote() {
-
-}
-
-export function displayNotes(i) {
-    const container = document.getElementById('note-list')
-    container.innerHTML = ``;
-    for (const note of notes) {
-        if (note.project === projects[i].title) {
-            const noteLi = document.createElement('li')
-            noteLi.setAttribute('class', 'card')
-            noteLi.innerHTML = `
-            <h2>${note.title}</h2>
-            <h3>Priority: ${note.priority}</h3>
-            <p>${note.text}</p>
-            `
-            container.appendChild(noteLi)
-        }
-    }
-}
+};
