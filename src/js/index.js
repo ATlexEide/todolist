@@ -31,7 +31,7 @@ const projectDialog = document.getElementById('addProjectDialog');
 document.getElementById('addProjectBtn').addEventListener('click', () => {
     addProjectTitle.value = '';
     addProjectDesc.value = '';
-    addProjectPriority.value = null;
+    addProjectPriority.value = 'none';
     addProjectDueDate.value = null;
     projectDialog.showModal()
 })
@@ -61,7 +61,7 @@ export function drawAddNoteDialog(currIndex) {
     document.getElementById('addNoteButton').addEventListener('click', () => {
         addNoteTitle.value = '';
         addNoteText.value = '';
-        addNotePriority.value = '';
+        addNotePriority.value = 'none';
         const d = document.getElementById('addNoteDialog')
         d.showModal()
 

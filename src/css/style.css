@@ -53,12 +53,38 @@ li {
     flex-direction: column;
 }
 
+form,
+dialog,
+fieldset {
+    background-color: var(--main-color);
+    border: none;
+}
+
+label,
+legend,
+input,
+option,
+textarea {
+    color: white;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: rgb(230, 100, 100);
+}
+
 form input,
 form label,
 form textarea,
 form button {
     padding: .5rem;
     width: 200px;
+}
+
+textarea,
+input,
+select {
+    background-color: rgb(26, 26, 26);
 }
 
 #addNoteBtn,
