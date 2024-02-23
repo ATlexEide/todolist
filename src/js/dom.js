@@ -112,4 +112,3 @@ export function displayProjectDialog(index) {
     dialog.showModal()
     drawAddNoteDialog()
 }
-
