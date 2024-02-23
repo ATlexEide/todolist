@@ -92,6 +92,7 @@ function addToLocalStorage(title, project) {
     localStorage.setItem(`${title}`, JSON.stringify(project))
 }
 export function getFromLocalStorage() {
+    projects = [];
     for (let i = 0; i < localStorage.length; i++) {
         projects.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
     }
