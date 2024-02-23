@@ -40,7 +40,7 @@ submitBtn.addEventListener('click', () => {
     const newProject = new Project(addProjectTitle.value, addProjectDesc.value, addProjectPriority.value, addProjectDueDate.value, false)
     const title = newProject.title
     addToLocalStorage(title, newProject)
-    getFromLocalStorage()
+    displayProjectList()
 })
 
 export let currIndex = null;
@@ -79,17 +79,21 @@ document.getElementById('submitNoteBtn').addEventListener('click', () => {
 export function checkForTitleChange(index) {
     const titleInput = document.getElementById('project-title');
     if (titleInput.value !== projects[currIndex].title) {
+        const keyToRemove = projects[currIndex].title;
         projects[index].title = titleInput.value;
-        displayProjectList();
+        addToLocalStorage(`${projects[index].title}`, projects[index])
+        localStorage.removeItem(`${keyToRemove}`)
+        displayProjectList()
+        console.log('at titlechange: ', localStorage)
     }
 }
 
 function addToLocalStorage(title, project) {
     localStorage.setItem(`${title}`, JSON.stringify(project))
-    displayProjectList()
 }
 export function getFromLocalStorage() {
     for (let i = 0; i < localStorage.length; i++) {
         projects.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
     }
+    console.log('at add to local: ', localStorage)
 }

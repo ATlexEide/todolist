@@ -43,8 +43,6 @@ export function displayProjectList() {
             priority.textContent = '';
         }
     }
-
-
     getIndexOfClickedCardAndOpenModal()
 }
 // Display and update content in project dialog
