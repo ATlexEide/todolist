@@ -37,7 +37,7 @@ document.getElementById('addProjectBtn').addEventListener('click', () => {
 })
 const submitBtn = document.getElementById('submitProjectBtn')
 submitBtn.addEventListener('click', () => {
-    const newProject = new Project(addProjectTitle.value, addProjectDesc.value, addProjectPriority.value, addProjectDueDate.value, false)
+    const newProject = new Project(addProjectTitle.value, addProjectDesc.value, addProjectPriority.value, addProjectDueDate.value)
     const title = newProject.title
     addToLocalStorage(title, newProject)
     displayProjectList()
