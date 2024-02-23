@@ -43,7 +43,7 @@ submitBtn.addEventListener('click', () => {
     getFromLocalStorage()
 })
 
-let currIndex = null;
+export let currIndex = null;
 export function getIndexOfClickedCardAndOpenModal() {
     const cards = document.getElementsByClassName('project-card');
     const cardPressed = e => {

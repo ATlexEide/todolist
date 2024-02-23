@@ -1,4 +1,4 @@
-import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage, } from "./index.js";
+import { projects, currIndex, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage, } from "./index.js";
 
 
 // Display projects as cards on page
