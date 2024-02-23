@@ -1,7 +1,9 @@
 :root {
-    --main-color: rgb(59, 59, 59);
-    --card-color: rgb(0, 119, 255);
-    --card-border-color: rgb(216, 87, 255);
+    --main-color: rgb(20, 17, 17);
+    --card-color: rgb(0, 0, 0);
+    --card-border-color: rgb(113, 71, 126);
+    --gradient-sides: #7a7a7a;
+    --gradient-mid: #ffffff;
 }
 
 * {
@@ -18,7 +20,7 @@ header {
 }
 
 header h1 {
-    background: linear-gradient(90deg, #402ab2 0%, #5f69ec 49%, #402ab2 96%);
+    background: linear-gradient(90deg, var(--gradient-sides) 40%, var(--gradient-mid) 50%, var(--gradient-sides) 60%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 
@@ -67,7 +69,7 @@ form button {
 
 .card {
     color: white;
-    background-color: var(--card-color);
+    background: linear-gradient(-30deg, rgba(15, 15, 15, .9) 0%, rgb(0, 0, 0, 0.4) 55%);
     border: solid 2px;
     border-color: var(--card-border-color);
     border-radius: 7px;
