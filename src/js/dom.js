@@ -1,4 +1,4 @@
-import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, displayNotes, checkForTitleChange, getFromLocalStorage, } from "./index.js";
+import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage, } from "./index.js";
 
 
 // Display projects as cards on page
@@ -116,3 +116,27 @@ export function displayProjectDialog(index) {
     drawAddNoteDialog()
 }
 
+export function displayNotes() {
+    const noteContainer = document.getElementById('note-list');
+    noteContainer.textContent = '';
+    for (let i = 0; i < projects[currIndex].notes.length; i++) {
+        const note = projects[currIndex].notes[i];
+        const noteLi = document.createElement('li');
+        noteLi.setAttribute('class', 'card')
+        const h2 = document.createElement('h2');
+        h2.textContent = `${note.title}`;
+        const p = document.createElement('p');
+        p.textContent = `${note.text}`;
+        const div = document.createElement('div');
+        div.setAttribute('id', 'note-priority');
+        div.textContent = `Priority: ${note.priority}`;
+        noteLi.appendChild(h2)
+        noteLi.appendChild(p)
+        noteLi.appendChild(div)
+        noteContainer.appendChild(noteLi);
+        if (!note.priority) {
+            const notePriority = document.getElementById('note-priority');
+            notePriority.textContent = '';
+        }
+    }
+}
