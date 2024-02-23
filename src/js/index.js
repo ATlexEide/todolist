@@ -10,7 +10,7 @@ class Project {
         this.desc = desc;
         this.dueDate = dueDate;
         this.priority = priority;
-        this.notes = [new Note('Test note', 'Text'), new Note('Test note 2', 'Text', 'Medium')];
+        this.notes = [];
     }
     get title() {
         return super.title;
