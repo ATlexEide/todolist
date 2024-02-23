@@ -97,3 +97,10 @@ export function displayNotes() {
         }
     }
 }
+export function checkForTitleChange(index) {
+    const titleInput = document.getElementById('project-title');
+    if (titleInput.value !== projects[currIndex].title) {
+        projects[index].title = titleInput.value;
+        displayProjectList();
+    }
+}

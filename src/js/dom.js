@@ -1,4 +1,4 @@
-import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, displayNotes } from "./index.js";
+import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, displayNotes, checkForTitleChange } from "./index.js";
 
 
 // Display projects as cards on page
@@ -107,6 +107,7 @@ export function displayProjectDialog(index) {
 
     document.getElementById('exit-button').addEventListener('click', () => {
         dialog.close()
+        checkForTitleChange(index)
     })
     displayNotes()
     dialog.showModal()
