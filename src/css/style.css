@@ -1,6 +1,6 @@
 :root {
-    --main-color: rgb(29, 29, 29);
-    --card-color: rgb(51, 51, 51);
+    --main-color: rgb(107, 105, 105);
+    --card-color: rgb(75, 106, 153);
 }
 
 * {
@@ -14,6 +14,12 @@ body {
 header {
     text-align: center;
     color: white;
+}
+
+header h1 {
+    /* background: linear-gradient(rgb(255, 178, 255), rgb(127, 128, 125), rgb(255, 178, 255)); */
+    /* -webkit-background-clip: text; */
+    /* -webkit-text-fill-color: transparent; */
 }
 
 #project-container {
