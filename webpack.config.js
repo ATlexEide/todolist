@@ -11,14 +11,14 @@ module.exports = {
         filename: '[name].bundle.js',
         clean: true
     },
-    devTool: 'source-map',
+    devtool: 'source-map',
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'dist')
         },
         port: 3000,
         open: true,
-        hot: true,
+        // hot: true,
         compress: true,
         historyApiFallback: true
     },
