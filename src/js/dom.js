@@ -1,8 +1,9 @@
-import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, displayNotes, checkForTitleChange } from "./index.js";
+import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, displayNotes, checkForTitleChange, getFromLocalStorage, } from "./index.js";
 
 
 // Display projects as cards on page
 export function displayProjectList() {
+    getFromLocalStorage()
     const container = document.getElementById('project-list');
     container.textContent = '';
     for (let i = 0; i < projects.length; i++) {
@@ -42,9 +43,10 @@ export function displayProjectList() {
             priority.textContent = '';
         }
     }
+
+
     getIndexOfClickedCardAndOpenModal()
 }
-
 // Display and update content in project dialog
 export function displayProjectDialog(index) {
     const dialog = document.getElementById('projectInfo');
@@ -113,3 +115,4 @@ export function displayProjectDialog(index) {
     dialog.showModal()
     drawAddNoteDialog()
 }
+
