@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To do list</title>
+    <script type="module" src="./note.js"></script>
+    <script src="https://kit.fontawesome.com/a8de8f4858.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+<script defer src="index.bundle.js"></script></head>
+<body>
+  <header>
+    <h1>Projects</h1>
+  </header>
+    <div id="project-container">
+      <!-- TEST | REMOVE LATER -->
+      <ul id="project-list"></ul>
+      <button class="card" id="addProjectBtn"><i class="fa-solid fa-plus fa-5x"></i></button>
+    </div>
+
+
+
+
+
+<dialog id="addProjectDialog">
+  <fieldset>
+    <legend>Add New Project</legend>
+        <form id="addProjectForm" method="dialog">
+        <label for="title">Title:</label><input id="addProjectTitle" type="text">
+        <label for="desc">Description:</label><textarea id="addProjectDesc" type="text"></textarea>
+        <label for="priority">Priority:</label>
+        <select id="addProjectPriority" name="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+        <label for="addProjectDueDate">Due:</label>
+        <input id="addProjectDueDate" type="date">
+      </select>
+      <button id="submitProjectBtn" type="submit">Add</button>
+</fieldset>
+  </form>
+</dialog>
+
+
+
+<dialog id="addNoteDialog">
+  <fieldset>
+    <legend>Add new note</legend>
+        <form id="addNoteForm" method="dialog">
+
+        <input id="addNoteTitle" type="text" placeholder="Title">
+        <textarea id="addNoteText" type="text" placeholder="Write a note.."></textarea>
+    
+
+        <!-- <label for="addNoteDueDate">Due:</label>
+        <input id="addNoteDueDate" type="date"> -->
+        <label for="priority">Priority:</label>
+        <select id="addNotePriority" name="priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button id="submitNoteBtn" type="submit">Add</button>
+  </fieldset>
+      </form>
+</dialog>
+<dialog id="projectInfo" tabindex="0"></dialog>
+</body>
+</html>

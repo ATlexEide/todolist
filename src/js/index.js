@@ -1,4 +1,5 @@
 import { displayProjectList, displayProjectDialog } from "./dom.js";
+import "../css/style.css"
 
 export let projects = []
 

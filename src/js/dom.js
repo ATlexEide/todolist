@@ -1,4 +1,4 @@
-import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, displayNotes } from "./note.js";
+import { projects, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, displayNotes } from "./index.js";
 
 
 // Display projects as cards on page
