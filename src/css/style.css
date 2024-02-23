@@ -105,6 +105,24 @@ select {
     height: 250px;
 }
 
+.card header {
+    display: flex;
+    justify-content: space-between;
+    padding: 4px;
+}
+
+.delete-proj-button,
+.delete-note-button {
+    border: solid 1px black;
+    border-radius: 5px;
+    aspect-ratio: 1;
+    height: 48px;
+}
+
+.delete-button:hover {
+    background-color: red;
+}
+
 button .card {
     display: flex;
     align-items: center;
@@ -112,12 +130,6 @@ button .card {
 
 }
 
-/* #projectInfo {
-    width: 90vw;
-    height: 90vh;
-    background-color: rgb(0, 0, 0, 0.9);
-    color: white;
-} */
 #projectInfo {
     width: 100vw;
     height: 100vh;

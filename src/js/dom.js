@@ -12,10 +12,11 @@ export function displayProjectList() {
         a.setAttribute('href', '#');
         a.setAttribute('class', 'project-card');
         a.setAttribute('id', `${i}`);
+        const header = document.createElement('header');
         const div = document.createElement('div');
         div.setAttribute('class', 'card');
         const h3 = document.createElement('h3');
-        h3.textContent = `Title: ${projects[i].title}`;
+        h3.textContent = `${projects[i].title}`;
         const desc = document.createElement('div');
         desc.textContent = `Description:`;
         const p = document.createElement('p');
@@ -26,13 +27,23 @@ export function displayProjectList() {
         const due = document.createElement('div');
         due.setAttribute('id', `${i}-due`);
         due.textContent = `Due by ${projects[i].dueDate}`;
+        const deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute('class', 'delete-proj-button delete-button');
+        const deleteIcon = document.createElement('i');
+        deleteIcon.setAttribute('class', 'fa fa-trash');
+        deleteIcon.setAttribute('aria-hidden', 'true');
         a.appendChild(div);
-        div.appendChild(h3)
+        header.appendChild(h3)
+        div.appendChild(header)
         div.appendChild(desc)
         div.appendChild(p)
         div.appendChild(priority)
         div.appendChild(due)
         proj.appendChild(a);
+
+        header.appendChild(deleteBtn);
+        deleteBtn.appendChild(deleteIcon);
+
         container.appendChild(proj);
         if (!projects[i].dueDate) {
             const due = document.getElementById(`${i}-due`);
@@ -118,6 +129,7 @@ export function displayNotes() {
     const noteContainer = document.getElementById('note-list');
     noteContainer.textContent = '';
     for (let i = 0; i < projects[currIndex].notes.length; i++) {
+        const header = document.createElement('header');
         const note = projects[currIndex].notes[i];
         const noteLi = document.createElement('li');
         noteLi.setAttribute('class', 'card')
@@ -128,7 +140,15 @@ export function displayNotes() {
         const div = document.createElement('div');
         div.setAttribute('id', 'note-priority');
         div.textContent = `Priority: ${note.priority}`;
-        noteLi.appendChild(h2)
+        const deleteBtn = document.createElement('button');
+        deleteBtn.setAttribute('class', 'delete-note-button delete-button');
+        const deleteIcon = document.createElement('i');
+        deleteIcon.setAttribute('class', 'fa fa-trash');
+        deleteIcon.setAttribute('aria-hidden', 'true');
+        deleteBtn.appendChild(deleteIcon)
+        header.appendChild(h2)
+        header.appendChild(deleteBtn)
+        noteLi.appendChild(header)
         noteLi.appendChild(p)
         noteLi.appendChild(div)
         noteContainer.appendChild(noteLi);
