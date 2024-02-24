@@ -111,8 +111,7 @@ select {
     padding: 4px;
 }
 
-.delete-proj-button,
-.delete-note-button {
+.delete-button {
     border: solid 1px black;
     border-radius: 5px;
     aspect-ratio: 1;

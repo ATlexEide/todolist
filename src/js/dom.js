@@ -1,4 +1,4 @@
-import { projects, currIndex, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage, } from "./index.js";
+import { projects, currIndex, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage } from "./index.js";
 
 
 // Display projects as cards on page
@@ -28,7 +28,7 @@ export function displayProjectList() {
         due.setAttribute('id', `${i}-due`);
         due.textContent = `Due by ${projects[i].dueDate}`;
         const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute('class', 'delete-proj-button delete-button');
+        deleteBtn.setAttribute('class', 'delete-button');
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
         deleteIcon.setAttribute('aria-hidden', 'true');
@@ -141,7 +141,7 @@ export function displayNotes() {
         div.setAttribute('id', 'note-priority');
         div.textContent = `Priority: ${note.priority}`;
         const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute('class', 'delete-note-button delete-button');
+        deleteBtn.setAttribute('class', 'delete-button');
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
         deleteIcon.setAttribute('aria-hidden', 'true');

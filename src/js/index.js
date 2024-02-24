@@ -98,3 +98,7 @@ export function getFromLocalStorage() {
     }
     console.log('at add to local: ', localStorage)
 }
+
+// export function listenForDelete() {
+//     document.getElementsByClassName('delete-button').addEventListener('click', () => { console.log('yipp') })
+// }
