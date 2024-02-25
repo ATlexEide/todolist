@@ -45,17 +45,37 @@ submitBtn.addEventListener('click', () => {
 
 export let currIndex = null;
 export function getIndexOfClickedCardAndOpenModal() {
-    const cards = document.getElementsByClassName('project-card');
+    const cards = document.getElementsByClassName('project');
     const cardPressed = e => {
         let index = e.currentTarget.id;  // Get ID of Clicked Element
-        currIndex = index
+        console.log(index.split("-").pop())
+        currIndex = index.split("-").pop()
         displayProjectDialog(currIndex)
     }
     for (let card of cards) {
         card.addEventListener("click", cardPressed);
     }
 };
+export function getIdOfClickedElementAndDelete() {
+    const buttons = document.getElementsByClassName('delete-button');
+    const buttonPressed = e => {
+        let id = e.currentTarget.id;  // Get ID of Clicked Element
+        deleteElement(id)
+        console.log('id: ', id)
+        console.log(projects)
+        displayProjectList()
+    }
+    for (let button of buttons) {
+        button.addEventListener("click", buttonPressed);
+    }
+};
 
+function deleteElement(id) {
+    const item = projects[id].title
+    console.log('Delete item:', item)
+    removeFromLocalStorage(item)
+    projects.splice(id, 1)
+};
 
 export function drawAddNoteDialog(currIndex) {
     document.getElementById('addNoteButton').addEventListener('click', () => {
@@ -96,7 +116,12 @@ export function getFromLocalStorage() {
     for (let i = 0; i < localStorage.length; i++) {
         projects.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
     }
-    console.log('at add to local: ', localStorage)
+    console.log('localStorage: ', localStorage)
+}
+function removeFromLocalStorage(item) {
+    console.log('key:', localStorage.getItem(item))
+    console.log('key:', item, typeof item)
+    localStorage.removeItem(item);
 }
 
 // export function listenForDelete() {

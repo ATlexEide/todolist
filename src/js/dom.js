@@ -1,4 +1,4 @@
-import { projects, currIndex, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage } from "./index.js";
+import { projects, currIndex, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage, getIdOfClickedElementAndDelete } from "./index.js";
 
 
 // Display projects as cards on page
@@ -11,10 +11,11 @@ export function displayProjectList() {
         const a = document.createElement('a');
         a.setAttribute('href', '#');
         a.setAttribute('class', 'project-card');
-        a.setAttribute('id', `${i}`);
         const header = document.createElement('header');
         const div = document.createElement('div');
-        div.setAttribute('class', 'card');
+        div.setAttribute('class', 'card project');
+        div.setAttribute('id', `card-${i}`);
+        // div.setAttribute('id', `${i}`);
         const h3 = document.createElement('h3');
         h3.textContent = `${projects[i].title}`;
         const desc = document.createElement('div');
@@ -29,6 +30,7 @@ export function displayProjectList() {
         due.textContent = `Due by ${projects[i].dueDate}`;
         const deleteBtn = document.createElement('button');
         deleteBtn.setAttribute('class', 'delete-button');
+        deleteBtn.setAttribute('id', `${i}`);
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
         deleteIcon.setAttribute('aria-hidden', 'true');
@@ -41,7 +43,7 @@ export function displayProjectList() {
         div.appendChild(due)
         proj.appendChild(a);
 
-        header.appendChild(deleteBtn);
+        a.appendChild(deleteBtn);
         deleteBtn.appendChild(deleteIcon);
 
         container.appendChild(proj);
@@ -54,10 +56,13 @@ export function displayProjectList() {
             priority.textContent = '';
         }
     }
+    getIdOfClickedElementAndDelete()
     getIndexOfClickedCardAndOpenModal()
+
 }
 // Display and update content in project dialog
 export function displayProjectDialog(index) {
+    if (projects.length <= 0) { return }
     const dialog = document.getElementById('projectInfo');
     dialog.textContent = '';
     const container = document.createElement('div');
@@ -75,7 +80,7 @@ export function displayProjectDialog(index) {
     i.setAttribute('aria-hidden', 'true');
     const input = document.createElement('input');
     input.setAttribute('id', 'project-title');
-    input.setAttribute('value', `${projects[index].title}`);
+    input.setAttribute('value', `${projects[currIndex].title}`);
     const details = document.createElement('details');
     const h3 = document.createElement('h3');
     h3.textContent = `Description: ${projects[index].desc}`;
@@ -120,9 +125,10 @@ export function displayProjectDialog(index) {
         dialog.close()
         checkForTitleChange(index)
     })
-    displayNotes()
-    dialog.showModal()
-    drawAddNoteDialog()
+    displayNotes();
+    dialog.showModal();
+    drawAddNoteDialog();
+    getIdOfClickedElementAndDelete()
 }
 
 export function displayNotes() {
