@@ -79,15 +79,6 @@ export function displayProjectDialog(index) {
     const input = document.createElement('input');
     input.setAttribute('id', 'project-title');
     input.setAttribute('value', `${projects[currIndex].title}`);
-    const details = document.createElement('details');
-    const h3 = document.createElement('h3');
-    h3.textContent = `Description: ${projects[index].desc}`;
-    const h4 = document.createElement('h4');
-    h4.textContent = `Priority: ${projects[index].priority}`;
-    const h5 = document.createElement('h5');
-    h5.textContent = `Due: ${projects[index].dueDate}`;
-
-
     const h2 = document.createElement('h2');
     h2.textContent = 'Notes:';
     const div = document.createElement('div');
@@ -99,20 +90,31 @@ export function displayProjectDialog(index) {
     addButton.setAttribute('id', 'addNoteButton');
     const iNote = document.createElement('i');
     iNote.setAttribute('class', 'fa-solid fa-plus fa-5x');
-
-
-
     container.appendChild(form);
     dialog.appendChild(container);
     button.appendChild(i);
     header.appendChild(button)
     form.appendChild(input);
     form.appendChild(header);
-    details.appendChild(h3);
-    details.appendChild(h4);
-    details.appendChild(h5);
-    form.appendChild(details)
-
+    if (projects[index].desc || projects[index].priority !== 'none' || projects[index].dueDate) {
+        const details = document.createElement('details');
+        form.appendChild(details)
+        if (projects[index].desc) {
+            const h3 = document.createElement('h3');
+            h3.textContent = `Description: ${projects[index].desc}`;
+            details.appendChild(h3);
+        }
+        if (projects[index].priority !== 'none') {
+            const h4 = document.createElement('h4');
+            h4.textContent = `Priority: ${projects[index].priority}`;
+            details.appendChild(h4);
+        }
+        if (projects[index].dueDate) {
+            const h5 = document.createElement('h5');
+            h5.textContent = `Due: ${projects[index].dueDate}`;
+            details.appendChild(h5);
+        }
+    }
     container.appendChild(div)
     div.appendChild(ul);
     div.appendChild(addButton)
