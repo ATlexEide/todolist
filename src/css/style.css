@@ -116,7 +116,7 @@ select {
     padding: 4px;
 }
 
-.delete-button,
+.delete-project-button,
 .delete-note-button {
     position: relative;
     border: solid 1px black;
@@ -126,7 +126,7 @@ select {
 }
 
 
-.delete-button {
+.delete-project-button {
     top: -248px;
     left: 230px;
 }
@@ -136,7 +136,7 @@ select {
     left: 198px;
 }
 
-.delete-button:hover,
+.delete-project-button:hover,
 .delete-note-button:hover {
     background-color: red;
 }

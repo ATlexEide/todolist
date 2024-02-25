@@ -48,11 +48,14 @@ submitBtn.addEventListener('click', () => {
     displayProjectList()
 })
 
+//===========================================================================================
+// TODO: Refactor
+//===========================================================================================
 export let currIndex = null;
 export function getIndexOfClickedCardAndOpenModal() {
     const cards = document.getElementsByClassName('project');
     const cardPressed = e => {
-        let index = e.currentTarget.id;  // Get ID of Clicked Element
+        let index = e.currentTarget.id;
         currIndex = index.split("-").pop()
         displayProjectDialog(currIndex)
     }
@@ -61,12 +64,12 @@ export function getIndexOfClickedCardAndOpenModal() {
     }
 };
 export function getIdOfClickedElementAndDelete() {
-    const buttons = document.getElementsByClassName('delete-button');
+    const buttons = document.getElementsByClassName('delete-project-button');
     const buttonPressed = e => {
-        let id = e.currentTarget.id;  // Get ID of Clicked Element
+        let id = e.currentTarget.id;
         id = id.split("-").pop()
         console.log('id: ', id = id.split("-").pop())
-        deleteElement(id)
+        deleteProject(id)
         console.clear()
         console.log(`Clicked: ${id}`)
     }
@@ -74,12 +77,34 @@ export function getIdOfClickedElementAndDelete() {
         button.addEventListener("click", buttonPressed);
     }
 };
-function deleteElement(id) {
+export function getIdOfAndDeleteNote() {
+    const buttons = document.getElementsByClassName('delete-note-button');
+    const buttonPressed = e => {
+        let id = e.currentTarget.id;
+        id = id.split("-").pop()
+        console.log('id: ', id = id.split("-").pop())
+        deleteNote(id)
+        console.clear()
+        console.log(`Clicked: ${id}`)
+    }
+    for (let button of buttons) {
+        button.addEventListener("click", buttonPressed);
+    }
+}
+//===========================================================================================
+//===========================================================================================
+function deleteProject(id) {
     const item = projects[id].title
     removeFromLocalStorage(item)
     projects.splice(id, 1)
     displayProjectList()
 };
+function deleteNote(id) {
+    const array = projects[currIndex].notes;
+    console.log(id)
+    array.splice(id, 1)
+    displayNotes()
+}
 
 export function drawAddNoteDialog(currIndex) {
     document.getElementById('addNoteButton').addEventListener('click', () => {
@@ -93,6 +118,8 @@ export function drawAddNoteDialog(currIndex) {
 }
 function addNote() {
     projects[currIndex].notes.push(new Note(addNoteTitle.value, addNoteText.value, addNotePriority.value))
+    localStorage.removeItem(`${projects[currIndex].title}`)
+    addToLocalStorage(`${projects[currIndex].title}`, projects[currIndex])
     displayNotes()
 }
 document.getElementById('submitNoteBtn').addEventListener('click', () => {

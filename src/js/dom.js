@@ -1,4 +1,4 @@
-import { projects, currIndex, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage, getIdOfClickedElementAndDelete } from "./index.js";
+import { projects, currIndex, getIndexOfClickedCardAndOpenModal, drawAddNoteDialog, checkForTitleChange, getFromLocalStorage, getIdOfClickedElementAndDelete, getIdOfAndDeleteNote } from "./index.js";
 
 
 // Display projects as cards on page
@@ -18,7 +18,7 @@ export function displayProjectList() {
         const h3 = document.createElement('h3');
         h3.textContent = `${projects[i].title}`;
         const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute('class', 'delete-button');
+        deleteBtn.setAttribute('class', 'delete-project-button');
         deleteBtn.setAttribute('id', `project-${i}`);
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
@@ -161,4 +161,5 @@ export function displayNotes() {
         }
         noteContainer.appendChild(noteLi);
     }
+    getIdOfAndDeleteNote();
 }
