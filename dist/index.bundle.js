@@ -110,10 +110,15 @@ select {
     background-color: rgb(26, 26, 26);
 }
 
-#addNoteBtn,
+#addNoteButton,
 #addProjectBtn {
     border: solid 2px white;
     margin-right: auto;
+}
+
+#addNoteButton:hover,
+#addProjectBtn:hover {
+    cursor: pointer;
 }
 
 .card {
@@ -134,14 +139,28 @@ select {
     padding: 4px;
 }
 
-.delete-button {
+.delete-project-button,
+.delete-note-button {
+    position: relative;
     border: solid 1px black;
     border-radius: 5px;
     aspect-ratio: 1;
     height: 48px;
 }
 
-.delete-button:hover {
+
+.delete-project-button {
+    top: -248px;
+    left: 230px;
+}
+
+.delete-note-button {
+    top: 4px;
+    left: 198px;
+}
+
+.delete-project-button:hover,
+.delete-note-button:hover {
     background-color: red;
 }
 
@@ -158,6 +177,7 @@ button .card {
     border: none;
     background-color: rgb(165, 30, 113);
     background-color: var(--main-color);
+    opacity: .99;
     color: white;
 }
 
@@ -234,7 +254,7 @@ h5 {
 
 a {
     text-decoration: none;
-}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,0BAA0B;IAC1B,sCAAsC;IACtC,yBAAyB;IACzB,uBAAuB;AAC3B;;AAEA;IACI,gDAAgD;AACpD;;AAEA;IACI,mCAAmC;AACvC;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,iHAAiH;IACjH,6BAA6B;IAC7B,oCAAoC;;AAExC;;AAEA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;;IAEI,YAAY;IACZ,WAAW;IACX,qBAAqB;AACzB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,YAAY;IACZ,aAAa;IACb,sBAAsB;AAC1B;;AAEA;;;IAGI,mCAAmC;IACnC,YAAY;AAChB;;AAEA;;;;;IAKI,YAAY;AAChB;;AAEA;;IAEI,yBAAyB;AAC7B;;AAEA;;;;IAII,cAAc;IACd,YAAY;AAChB;;AAEA;;;IAGI,iCAAiC;AACrC;;AAEA;;IAEI,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;IACI,YAAY;IACZ,mFAAmF;IACnF,iBAAiB;IACjB,sCAAsC;IACtC,kBAAkB;IAClB,iBAAiB;IACjB,kBAAkB;IAClB,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;IACI,uBAAuB;IACvB,kBAAkB;IAClB,eAAe;IACf,YAAY;AAChB;;AAEA;IACI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;;AAE3B;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,YAAY;IACZ,mCAAmC;IACnC,mCAAmC;IACnC,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;;;IAGI,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,iCAAiC;IACjC,YAAY;IACZ,eAAe;IACf,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,oCAAoC;AACxC;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,iCAAiC;IACjC,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,aAAa;AACjB;;AAEA;;IAEI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,qBAAqB;AACzB","sourcesContent":[":root {\n    --main-color: rgb(20, 17, 17);\n    --card-color: rgb(0, 0, 0);\n    --card-border-color: rgb(113, 71, 126);\n    --gradient-sides: #7a7a7a;\n    --gradient-mid: #ffffff;\n}\n\n* {\n    font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n\nbody {\n    background-color: var(--main-color);\n}\n\nheader {\n    text-align: center;\n    color: white;\n}\n\nheader h1 {\n    background: linear-gradient(90deg, var(--gradient-sides) 40%, var(--gradient-mid) 50%, var(--gradient-sides) 60%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n\n}\n\n#project-container {\n    padding: 48px;\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#project-list {\n    display: flex;\n    flex-wrap: wrap;\n}\n\nul,\nli {\n    padding: 0px;\n    margin: 0px;\n    list-style-type: none;\n}\n\n\n#addProjectForm {\n    width: 20vw;\n    height: 50vh;\n    color: black;\n    display: flex;\n    flex-direction: column;\n}\n\nform,\ndialog,\nfieldset {\n    background-color: var(--main-color);\n    border: none;\n}\n\nlabel,\nlegend,\ninput,\noption,\ntextarea {\n    color: white;\n}\n\ninput::placeholder,\ntextarea::placeholder {\n    color: rgb(230, 100, 100);\n}\n\nform input,\nform label,\nform textarea,\nform button {\n    padding: .5rem;\n    width: 200px;\n}\n\ntextarea,\ninput,\nselect {\n    background-color: rgb(26, 26, 26);\n}\n\n#addNoteBtn,\n#addProjectBtn {\n    border: solid 2px white;\n    margin-right: auto;\n}\n\n.card {\n    color: white;\n    background: linear-gradient(-30deg, rgba(15, 15, 15, .9) 0%, rgb(0, 0, 0, 0.4) 55%);\n    border: solid 2px;\n    border-color: var(--card-border-color);\n    border-radius: 7px;\n    margin-left: 20px;\n    padding-left: 10px;\n    width: 250px;\n    height: 250px;\n}\n\n.card header {\n    display: flex;\n    justify-content: space-between;\n    padding: 4px;\n}\n\n.delete-button {\n    border: solid 1px black;\n    border-radius: 5px;\n    aspect-ratio: 1;\n    height: 48px;\n}\n\n.delete-button:hover {\n    background-color: red;\n}\n\nbutton .card {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n#projectInfo {\n    width: 100vw;\n    height: 100vh;\n    border: none;\n    background-color: rgb(165, 30, 113);\n    background-color: var(--main-color);\n    color: white;\n}\n\n#project-dialog-form {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n#projectInfo h2 {\n    text-align: center;\n}\n\n#projectInfo h3,\nh4,\nh5 {\n    font-size: 18px;\n}\n\n#project-dialog-form input {\n    width: 400px;\n    background-color: rgb(0, 0, 0, 0);\n    border: none;\n    font-size: 18px;\n    color: white;\n    font-size: 38px;\n    text-align: center;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n#project-note-container {\n    display: flex;\n}\n\n#dialog-header {\n    display: grid;\n    grid-template-columns: 50px 1fr 50px;\n}\n\n#exit-button {\n    width: min-content;\n    height: min-content;\n    background-color: rgb(0, 0, 0, 0);\n    border: none;\n}\n\n#project-note-container {\n    padding: 48px;\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#note-list {\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#addNoteDialog form {\n    display: flex;\n    flex-direction: column;\n    width: 350px;\n    height: 400px;\n}\n\n#addNoteDialog input,\n#addNoteDialog textarea {\n    width: 90%;\n}\n\n#addNoteDialog select {\n    width: 50%;\n}\n\na {\n    text-decoration: none;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,0BAA0B;IAC1B,sCAAsC;IACtC,yBAAyB;IACzB,uBAAuB;AAC3B;;AAEA;IACI,gDAAgD;AACpD;;AAEA;IACI,mCAAmC;AACvC;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,iHAAiH;IACjH,6BAA6B;IAC7B,oCAAoC;;AAExC;;AAEA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;;IAEI,YAAY;IACZ,WAAW;IACX,qBAAqB;AACzB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,YAAY;IACZ,aAAa;IACb,sBAAsB;AAC1B;;AAEA;;;IAGI,mCAAmC;IACnC,YAAY;AAChB;;AAEA;;;;;IAKI,YAAY;AAChB;;AAEA;;IAEI,yBAAyB;AAC7B;;AAEA;;;;IAII,cAAc;IACd,YAAY;AAChB;;AAEA;;;IAGI,iCAAiC;AACrC;;AAEA;;IAEI,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;IAEI,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,mFAAmF;IACnF,iBAAiB;IACjB,sCAAsC;IACtC,kBAAkB;IAClB,iBAAiB;IACjB,kBAAkB;IAClB,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;;IAEI,kBAAkB;IAClB,uBAAuB;IACvB,kBAAkB;IAClB,eAAe;IACf,YAAY;AAChB;;;AAGA;IACI,WAAW;IACX,WAAW;AACf;;AAEA;IACI,QAAQ;IACR,WAAW;AACf;;AAEA;;IAEI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;;AAE3B;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,YAAY;IACZ,mCAAmC;IACnC,mCAAmC;IACnC,YAAY;IACZ,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;;;IAGI,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,iCAAiC;IACjC,YAAY;IACZ,eAAe;IACf,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,oCAAoC;AACxC;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,iCAAiC;IACjC,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,aAAa;AACjB;;AAEA;;IAEI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,qBAAqB;AACzB","sourcesContent":[":root {\n    --main-color: rgb(20, 17, 17);\n    --card-color: rgb(0, 0, 0);\n    --card-border-color: rgb(113, 71, 126);\n    --gradient-sides: #7a7a7a;\n    --gradient-mid: #ffffff;\n}\n\n* {\n    font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n\nbody {\n    background-color: var(--main-color);\n}\n\nheader {\n    text-align: center;\n    color: white;\n}\n\nheader h1 {\n    background: linear-gradient(90deg, var(--gradient-sides) 40%, var(--gradient-mid) 50%, var(--gradient-sides) 60%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n\n}\n\n#project-container {\n    padding: 48px;\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#project-list {\n    display: flex;\n    flex-wrap: wrap;\n}\n\nul,\nli {\n    padding: 0px;\n    margin: 0px;\n    list-style-type: none;\n}\n\n\n#addProjectForm {\n    width: 20vw;\n    height: 50vh;\n    color: black;\n    display: flex;\n    flex-direction: column;\n}\n\nform,\ndialog,\nfieldset {\n    background-color: var(--main-color);\n    border: none;\n}\n\nlabel,\nlegend,\ninput,\noption,\ntextarea {\n    color: white;\n}\n\ninput::placeholder,\ntextarea::placeholder {\n    color: rgb(230, 100, 100);\n}\n\nform input,\nform label,\nform textarea,\nform button {\n    padding: .5rem;\n    width: 200px;\n}\n\ntextarea,\ninput,\nselect {\n    background-color: rgb(26, 26, 26);\n}\n\n#addNoteButton,\n#addProjectBtn {\n    border: solid 2px white;\n    margin-right: auto;\n}\n\n#addNoteButton:hover,\n#addProjectBtn:hover {\n    cursor: pointer;\n}\n\n.card {\n    color: white;\n    background: linear-gradient(-30deg, rgba(15, 15, 15, .9) 0%, rgb(0, 0, 0, 0.4) 55%);\n    border: solid 2px;\n    border-color: var(--card-border-color);\n    border-radius: 7px;\n    margin-left: 20px;\n    padding-left: 10px;\n    width: 250px;\n    height: 250px;\n}\n\n.card header {\n    display: flex;\n    justify-content: space-between;\n    padding: 4px;\n}\n\n.delete-project-button,\n.delete-note-button {\n    position: relative;\n    border: solid 1px black;\n    border-radius: 5px;\n    aspect-ratio: 1;\n    height: 48px;\n}\n\n\n.delete-project-button {\n    top: -248px;\n    left: 230px;\n}\n\n.delete-note-button {\n    top: 4px;\n    left: 198px;\n}\n\n.delete-project-button:hover,\n.delete-note-button:hover {\n    background-color: red;\n}\n\nbutton .card {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n#projectInfo {\n    width: 100vw;\n    height: 100vh;\n    border: none;\n    background-color: rgb(165, 30, 113);\n    background-color: var(--main-color);\n    opacity: .99;\n    color: white;\n}\n\n#project-dialog-form {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n#projectInfo h2 {\n    text-align: center;\n}\n\n#projectInfo h3,\nh4,\nh5 {\n    font-size: 18px;\n}\n\n#project-dialog-form input {\n    width: 400px;\n    background-color: rgb(0, 0, 0, 0);\n    border: none;\n    font-size: 18px;\n    color: white;\n    font-size: 38px;\n    text-align: center;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n#project-note-container {\n    display: flex;\n}\n\n#dialog-header {\n    display: grid;\n    grid-template-columns: 50px 1fr 50px;\n}\n\n#exit-button {\n    width: min-content;\n    height: min-content;\n    background-color: rgb(0, 0, 0, 0);\n    border: none;\n}\n\n#project-note-container {\n    padding: 48px;\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#note-list {\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#addNoteDialog form {\n    display: flex;\n    flex-direction: column;\n    width: 350px;\n    height: 400px;\n}\n\n#addNoteDialog input,\n#addNoteDialog textarea {\n    width: 90%;\n}\n\n#addNoteDialog select {\n    width: 50%;\n}\n\na {\n    text-decoration: none;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -707,53 +727,56 @@ function displayProjectList() {
         const a = document.createElement('a');
         a.setAttribute('href', '#');
         a.setAttribute('class', 'project-card');
-        a.setAttribute('id', `${i}`);
         const header = document.createElement('header');
         const div = document.createElement('div');
-        div.setAttribute('class', 'card');
+        div.setAttribute('class', 'card project');
+        div.setAttribute('id', `card-${i}`);
         const h3 = document.createElement('h3');
         h3.textContent = `${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].title}`;
-        const desc = document.createElement('div');
-        desc.textContent = `Description:`;
-        const p = document.createElement('p');
-        p.textContent = `${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].desc}`;
-        const priority = document.createElement('div');
-        priority.setAttribute('id', 'priority')
-        priority.textContent = `Priority: ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].priority}`;
-        const due = document.createElement('div');
-        due.setAttribute('id', `${i}-due`);
-        due.textContent = `Due by ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].dueDate}`;
         const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute('class', 'delete-button');
+        deleteBtn.setAttribute('class', 'delete-project-button');
+        deleteBtn.setAttribute('id', `project-${i}`);
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
         deleteIcon.setAttribute('aria-hidden', 'true');
         a.appendChild(div);
         header.appendChild(h3)
         div.appendChild(header)
-        div.appendChild(desc)
-        div.appendChild(p)
-        div.appendChild(priority)
-        div.appendChild(due)
+        // Description
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].desc) {
+            const desc = document.createElement('div');
+            desc.textContent = `Description:`;
+            const p = document.createElement('p');
+            p.textContent = `${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].desc}`;
+            div.appendChild(desc)
+            div.appendChild(p)
+        }
+        // Priority
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].priority !== 'none') {
+            const priority = document.createElement('div');
+            priority.setAttribute('id', 'priority')
+            priority.textContent = `Priority: ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].priority}`;
+            div.appendChild(priority)
+        }
+        // Due date
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].dueDate) {
+            const due = document.createElement('div');
+            due.setAttribute('id', `${i}-due`);
+            due.textContent = `Due by ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].dueDate}`;
+            div.appendChild(due)
+        }
         proj.appendChild(a);
-
-        header.appendChild(deleteBtn);
+        a.appendChild(deleteBtn);
         deleteBtn.appendChild(deleteIcon);
-
         container.appendChild(proj);
-        if (!_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].dueDate) {
-            const due = document.getElementById(`${i}-due`);
-            due.textContent = '';
-        }
-        if (!_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[i].priority) {
-            const priority = document.getElementById(`priority`);
-            priority.textContent = '';
-        }
+
     }
     (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.getIndexOfClickedCardAndOpenModal)()
+    ;(0,_index_js__WEBPACK_IMPORTED_MODULE_0__.getIdOfClickedElementAndDelete)()
 }
 // Display and update content in project dialog
 function displayProjectDialog(index) {
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.projects.length <= 0) { return }
     const dialog = document.getElementById('projectInfo');
     dialog.textContent = '';
     const container = document.createElement('div');
@@ -771,16 +794,7 @@ function displayProjectDialog(index) {
     i.setAttribute('aria-hidden', 'true');
     const input = document.createElement('input');
     input.setAttribute('id', 'project-title');
-    input.setAttribute('value', `${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].title}`);
-    const details = document.createElement('details');
-    const h3 = document.createElement('h3');
-    h3.textContent = `Description: ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].desc}`;
-    const h4 = document.createElement('h4');
-    h4.textContent = `Priority: ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].priority}`;
-    const h5 = document.createElement('h5');
-    h5.textContent = `Due: ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].dueDate}`;
-
-
+    input.setAttribute('value', `${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[_index_js__WEBPACK_IMPORTED_MODULE_0__.currIndex].title}`);
     const h2 = document.createElement('h2');
     h2.textContent = 'Notes:';
     const div = document.createElement('div');
@@ -792,20 +806,31 @@ function displayProjectDialog(index) {
     addButton.setAttribute('id', 'addNoteButton');
     const iNote = document.createElement('i');
     iNote.setAttribute('class', 'fa-solid fa-plus fa-5x');
-
-
-
     container.appendChild(form);
     dialog.appendChild(container);
     button.appendChild(i);
     header.appendChild(button)
     form.appendChild(input);
     form.appendChild(header);
-    details.appendChild(h3);
-    details.appendChild(h4);
-    details.appendChild(h5);
-    form.appendChild(details)
-
+    if (_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].desc || _index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].priority !== 'none' || _index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].dueDate) {
+        const details = document.createElement('details');
+        form.appendChild(details)
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].desc) {
+            const h3 = document.createElement('h3');
+            h3.textContent = `Description: ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].desc}`;
+            details.appendChild(h3);
+        }
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].priority !== 'none') {
+            const h4 = document.createElement('h4');
+            h4.textContent = `Priority: ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].priority}`;
+            details.appendChild(h4);
+        }
+        if (_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].dueDate) {
+            const h5 = document.createElement('h5');
+            h5.textContent = `Due: ${_index_js__WEBPACK_IMPORTED_MODULE_0__.projects[index].dueDate}`;
+            details.appendChild(h5);
+        }
+    }
     container.appendChild(div)
     div.appendChild(ul);
     div.appendChild(addButton)
@@ -814,11 +839,11 @@ function displayProjectDialog(index) {
 
     document.getElementById('exit-button').addEventListener('click', () => {
         dialog.close()
-        ;(0,_index_js__WEBPACK_IMPORTED_MODULE_0__.checkForTitleChange)(index)
+        ;(0,_index_js__WEBPACK_IMPORTED_MODULE_0__.checkForTitleChange)()
     })
-    displayNotes()
-    dialog.showModal()
-    ;(0,_index_js__WEBPACK_IMPORTED_MODULE_0__.drawAddNoteDialog)()
+    displayNotes();
+    dialog.showModal();
+    (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.drawAddNoteDialog)();
 }
 
 function displayNotes() {
@@ -833,26 +858,26 @@ function displayNotes() {
         h2.textContent = `${note.title}`;
         const p = document.createElement('p');
         p.textContent = `${note.text}`;
-        const div = document.createElement('div');
-        div.setAttribute('id', 'note-priority');
-        div.textContent = `Priority: ${note.priority}`;
         const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute('class', 'delete-button');
+        deleteBtn.setAttribute('class', 'delete-note-button');
+        deleteBtn.setAttribute('id', `note-${i}`);
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
         deleteIcon.setAttribute('aria-hidden', 'true');
         deleteBtn.appendChild(deleteIcon)
         header.appendChild(h2)
-        header.appendChild(deleteBtn)
+        noteLi.appendChild(deleteBtn)
         noteLi.appendChild(header)
         noteLi.appendChild(p)
-        noteLi.appendChild(div)
-        noteContainer.appendChild(noteLi);
-        if (!note.priority) {
-            const notePriority = document.getElementById('note-priority');
-            notePriority.textContent = '';
+        if (note.priority !== 'none') {
+            const div = document.createElement('div');
+            div.setAttribute('id', 'note-priority');
+            div.textContent = `Priority: ${note.priority}`;
+            noteLi.appendChild(div)
         }
+        noteContainer.appendChild(noteLi);
     }
+    (0,_index_js__WEBPACK_IMPORTED_MODULE_0__.getIdOfAndDeleteNote)();
 }
 
 /***/ }),
@@ -869,6 +894,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   currIndex: () => (/* binding */ currIndex),
 /* harmony export */   drawAddNoteDialog: () => (/* binding */ drawAddNoteDialog),
 /* harmony export */   getFromLocalStorage: () => (/* binding */ getFromLocalStorage),
+/* harmony export */   getIdOfAndDeleteNote: () => (/* binding */ getIdOfAndDeleteNote),
+/* harmony export */   getIdOfClickedElementAndDelete: () => (/* binding */ getIdOfClickedElementAndDelete),
 /* harmony export */   getIndexOfClickedCardAndOpenModal: () => (/* binding */ getIndexOfClickedCardAndOpenModal),
 /* harmony export */   projects: () => (/* binding */ projects)
 /* harmony export */ });
@@ -913,25 +940,74 @@ document.getElementById('addProjectBtn').addEventListener('click', () => {
 })
 const submitBtn = document.getElementById('submitProjectBtn')
 submitBtn.addEventListener('click', () => {
+    if (addProjectTitle.value === '') {
+        addProjectTitle.setCustomValidity('Please enter a title');
+        addProjectTitle.reportValidity(); return
+    }
+    addProjectTitle.setCustomValidity('');
     const newProject = new Project(addProjectTitle.value, addProjectDesc.value, addProjectPriority.value, addProjectDueDate.value)
     const title = newProject.title
     addToLocalStorage(title, newProject)
     ;(0,_dom_js__WEBPACK_IMPORTED_MODULE_0__.displayProjectList)()
 })
 
+//===========================================================================================
+// TODO: Refactor
+//===========================================================================================
 let currIndex = null;
 function getIndexOfClickedCardAndOpenModal() {
-    const cards = document.getElementsByClassName('project-card');
+    const cards = document.getElementsByClassName('project');
     const cardPressed = e => {
-        let index = e.currentTarget.id;  // Get ID of Clicked Element
-        currIndex = index
+        let index = e.currentTarget.id;
+        currIndex = index.split("-").pop()
         ;(0,_dom_js__WEBPACK_IMPORTED_MODULE_0__.displayProjectDialog)(currIndex)
     }
     for (let card of cards) {
         card.addEventListener("click", cardPressed);
     }
 };
-
+function getIdOfClickedElementAndDelete() {
+    const buttons = document.getElementsByClassName('delete-project-button');
+    const buttonPressed = e => {
+        let id = e.currentTarget.id;
+        id = id.split("-").pop()
+        console.log('id: ', id = id.split("-").pop())
+        deleteProject(id)
+        console.clear()
+        console.log(`Clicked: ${id}`)
+    }
+    for (let button of buttons) {
+        button.addEventListener("click", buttonPressed);
+    }
+};
+function getIdOfAndDeleteNote() {
+    const buttons = document.getElementsByClassName('delete-note-button');
+    const buttonPressed = e => {
+        let id = e.currentTarget.id;
+        id = id.split("-").pop()
+        console.log('id: ', id = id.split("-").pop())
+        deleteNote(id)
+        console.clear()
+        console.log(`Clicked: ${id}`)
+    }
+    for (let button of buttons) {
+        button.addEventListener("click", buttonPressed);
+    }
+}
+//===========================================================================================
+//===========================================================================================
+function deleteProject(id) {
+    const item = projects[id].title
+    removeFromLocalStorage(item)
+    projects.splice(id, 1)
+    ;(0,_dom_js__WEBPACK_IMPORTED_MODULE_0__.displayProjectList)()
+};
+function deleteNote(id) {
+    const array = projects[currIndex].notes;
+    console.log(id)
+    array.splice(id, 1)
+    ;(0,_dom_js__WEBPACK_IMPORTED_MODULE_0__.displayNotes)()
+}
 
 function drawAddNoteDialog(currIndex) {
     document.getElementById('addNoteButton').addEventListener('click', () => {
@@ -945,6 +1021,8 @@ function drawAddNoteDialog(currIndex) {
 }
 function addNote() {
     projects[currIndex].notes.push(new Note(addNoteTitle.value, addNoteText.value, addNotePriority.value))
+    localStorage.removeItem(`${projects[currIndex].title}`)
+    addToLocalStorage(`${projects[currIndex].title}`, projects[currIndex])
     ;(0,_dom_js__WEBPACK_IMPORTED_MODULE_0__.displayNotes)()
 }
 document.getElementById('submitNoteBtn').addEventListener('click', () => {
@@ -952,15 +1030,14 @@ document.getElementById('submitNoteBtn').addEventListener('click', () => {
 })
 
 
-function checkForTitleChange(index) {
+function checkForTitleChange() {
     const titleInput = document.getElementById('project-title');
     if (titleInput.value !== projects[currIndex].title) {
         const keyToRemove = projects[currIndex].title;
-        projects[index].title = titleInput.value;
-        addToLocalStorage(`${projects[index].title}`, projects[index])
+        projects[currIndex].title = titleInput.value;
+        addToLocalStorage(`${projects[currIndex].title}`, projects[currIndex])
         localStorage.removeItem(`${keyToRemove}`)
         ;(0,_dom_js__WEBPACK_IMPORTED_MODULE_0__.displayProjectList)()
-        console.log('at titlechange: ', localStorage)
     }
 }
 
@@ -972,11 +1049,12 @@ function getFromLocalStorage() {
     for (let i = 0; i < localStorage.length; i++) {
         projects.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
     }
-    console.log('at add to local: ', localStorage)
+}
+function removeFromLocalStorage(item) {
+    localStorage.removeItem(item);
 }
 
 // export function listenForDelete() {
-//     document.getElementsByClassName('delete-button').addEventListener('click', () => { console.log('yipp') })
 // }
 
 /***/ })
