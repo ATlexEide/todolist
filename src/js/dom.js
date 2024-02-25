@@ -19,7 +19,7 @@ export function displayProjectList() {
         h3.textContent = `${projects[i].title}`;
         const deleteBtn = document.createElement('button');
         deleteBtn.setAttribute('class', 'delete-button');
-        deleteBtn.setAttribute('id', `${i}`);
+        deleteBtn.setAttribute('id', `project-${i}`);
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
         deleteIcon.setAttribute('aria-hidden', 'true');
@@ -55,8 +55,8 @@ export function displayProjectList() {
         container.appendChild(proj);
 
     }
-    getIdOfClickedElementAndDelete()
     getIndexOfClickedCardAndOpenModal()
+    getIdOfClickedElementAndDelete()
 }
 // Display and update content in project dialog
 export function displayProjectDialog(index) {
@@ -123,12 +123,11 @@ export function displayProjectDialog(index) {
 
     document.getElementById('exit-button').addEventListener('click', () => {
         dialog.close()
-        checkForTitleChange(index)
+        checkForTitleChange()
     })
     displayNotes();
     dialog.showModal();
     drawAddNoteDialog();
-    getIdOfClickedElementAndDelete()
 }
 
 export function displayNotes() {
@@ -145,6 +144,7 @@ export function displayNotes() {
         p.textContent = `${note.text}`;
         const deleteBtn = document.createElement('button');
         deleteBtn.setAttribute('class', 'delete-note-button');
+        deleteBtn.setAttribute('id', `note-${i}`);
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
         deleteIcon.setAttribute('aria-hidden', 'true');
