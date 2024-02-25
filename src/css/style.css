@@ -116,17 +116,28 @@ select {
     padding: 4px;
 }
 
-.delete-button {
+.delete-button,
+.delete-note-button {
     position: relative;
-    top: -248px;
-    left: 230px;
     border: solid 1px black;
     border-radius: 5px;
     aspect-ratio: 1;
     height: 48px;
 }
 
-.delete-button:hover {
+
+.delete-button {
+    top: -248px;
+    left: 230px;
+}
+
+.delete-note-button {
+    top: 4px;
+    left: 198px;
+}
+
+.delete-button:hover,
+.delete-note-button:hover {
     background-color: red;
 }
 
@@ -143,6 +154,7 @@ button .card {
     border: none;
     background-color: rgb(165, 30, 113);
     background-color: var(--main-color);
+    opacity: .99;
     color: white;
 }
 
