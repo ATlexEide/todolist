@@ -37,6 +37,11 @@ document.getElementById('addProjectBtn').addEventListener('click', () => {
 })
 const submitBtn = document.getElementById('submitProjectBtn')
 submitBtn.addEventListener('click', () => {
+    if (addProjectTitle.value === '') {
+        addProjectTitle.setCustomValidity('Please enter a title');
+        addProjectTitle.reportValidity(); return
+    }
+    addProjectTitle.setCustomValidity('');
     const newProject = new Project(addProjectTitle.value, addProjectDesc.value, addProjectPriority.value, addProjectDueDate.value)
     const title = newProject.title
     addToLocalStorage(title, newProject)
