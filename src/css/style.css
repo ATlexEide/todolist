@@ -112,6 +112,9 @@ select {
 }
 
 .delete-button {
+    position: relative;
+    top: -248px;
+    left: 230px;
     border: solid 1px black;
     border-radius: 5px;
     aspect-ratio: 1;
