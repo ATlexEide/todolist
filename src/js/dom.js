@@ -15,19 +15,8 @@ export function displayProjectList() {
         const div = document.createElement('div');
         div.setAttribute('class', 'card project');
         div.setAttribute('id', `card-${i}`);
-        // div.setAttribute('id', `${i}`);
         const h3 = document.createElement('h3');
         h3.textContent = `${projects[i].title}`;
-        const desc = document.createElement('div');
-        desc.textContent = `Description:`;
-        const p = document.createElement('p');
-        p.textContent = `${projects[i].desc}`;
-        const priority = document.createElement('div');
-        priority.setAttribute('id', 'priority')
-        priority.textContent = `Priority: ${projects[i].priority}`;
-        const due = document.createElement('div');
-        due.setAttribute('id', `${i}-due`);
-        due.textContent = `Due by ${projects[i].dueDate}`;
         const deleteBtn = document.createElement('button');
         deleteBtn.setAttribute('class', 'delete-button');
         deleteBtn.setAttribute('id', `${i}`);
@@ -37,28 +26,37 @@ export function displayProjectList() {
         a.appendChild(div);
         header.appendChild(h3)
         div.appendChild(header)
-        div.appendChild(desc)
-        div.appendChild(p)
-        div.appendChild(priority)
-        div.appendChild(due)
+        // Description
+        if (projects[i].desc) {
+            const desc = document.createElement('div');
+            desc.textContent = `Description:`;
+            const p = document.createElement('p');
+            p.textContent = `${projects[i].desc}`;
+            div.appendChild(desc)
+            div.appendChild(p)
+        }
+        // Priority
+        if (projects[i].priority !== 'none') {
+            const priority = document.createElement('div');
+            priority.setAttribute('id', 'priority')
+            priority.textContent = `Priority: ${projects[i].priority}`;
+            div.appendChild(priority)
+        }
+        // Due date
+        if (projects[i].dueDate) {
+            const due = document.createElement('div');
+            due.setAttribute('id', `${i}-due`);
+            due.textContent = `Due by ${projects[i].dueDate}`;
+            div.appendChild(due)
+        }
         proj.appendChild(a);
-
         a.appendChild(deleteBtn);
         deleteBtn.appendChild(deleteIcon);
-
         container.appendChild(proj);
-        if (!projects[i].dueDate) {
-            const due = document.getElementById(`${i}-due`);
-            due.textContent = '';
-        }
-        if (!projects[i].priority) {
-            const priority = document.getElementById(`priority`);
-            priority.textContent = '';
-        }
+
     }
     getIdOfClickedElementAndDelete()
     getIndexOfClickedCardAndOpenModal()
-
 }
 // Display and update content in project dialog
 export function displayProjectDialog(index) {
