@@ -87,10 +87,15 @@ select {
     background-color: rgb(26, 26, 26);
 }
 
-#addNoteBtn,
+#addNoteButton,
 #addProjectBtn {
     border: solid 2px white;
     margin-right: auto;
+}
+
+#addNoteButton:hover,
+#addProjectBtn:hover {
+    cursor: pointer;
 }
 
 .card {
