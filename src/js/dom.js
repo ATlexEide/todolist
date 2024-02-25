@@ -143,24 +143,22 @@ export function displayNotes() {
         h2.textContent = `${note.title}`;
         const p = document.createElement('p');
         p.textContent = `${note.text}`;
-        const div = document.createElement('div');
-        div.setAttribute('id', 'note-priority');
-        div.textContent = `Priority: ${note.priority}`;
         const deleteBtn = document.createElement('button');
-        deleteBtn.setAttribute('class', 'delete-button');
+        deleteBtn.setAttribute('class', 'delete-note-button');
         const deleteIcon = document.createElement('i');
         deleteIcon.setAttribute('class', 'fa fa-trash');
         deleteIcon.setAttribute('aria-hidden', 'true');
         deleteBtn.appendChild(deleteIcon)
         header.appendChild(h2)
-        header.appendChild(deleteBtn)
+        noteLi.appendChild(deleteBtn)
         noteLi.appendChild(header)
         noteLi.appendChild(p)
-        noteLi.appendChild(div)
-        noteContainer.appendChild(noteLi);
-        if (!note.priority) {
-            const notePriority = document.getElementById('note-priority');
-            notePriority.textContent = '';
+        if (note.priority !== 'none') {
+            const div = document.createElement('div');
+            div.setAttribute('id', 'note-priority');
+            div.textContent = `Priority: ${note.priority}`;
+            noteLi.appendChild(div)
         }
+        noteContainer.appendChild(noteLi);
     }
 }
