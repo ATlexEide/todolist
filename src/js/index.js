@@ -53,7 +53,6 @@ export function getIndexOfClickedCardAndOpenModal() {
     const cards = document.getElementsByClassName('project');
     const cardPressed = e => {
         let index = e.currentTarget.id;  // Get ID of Clicked Element
-        console.log(index.split("-").pop())
         currIndex = index.split("-").pop()
         displayProjectDialog(currIndex)
     }
@@ -66,8 +65,6 @@ export function getIdOfClickedElementAndDelete() {
     const buttonPressed = e => {
         let id = e.currentTarget.id;  // Get ID of Clicked Element
         deleteElement(id)
-        console.log('id: ', id)
-        console.log(projects)
         displayProjectList()
     }
     for (let button of buttons) {
@@ -77,7 +74,6 @@ export function getIdOfClickedElementAndDelete() {
 
 function deleteElement(id) {
     const item = projects[id].title
-    console.log('Delete item:', item)
     removeFromLocalStorage(item)
     projects.splice(id, 1)
 };
@@ -109,7 +105,6 @@ export function checkForTitleChange(index) {
         addToLocalStorage(`${projects[index].title}`, projects[index])
         localStorage.removeItem(`${keyToRemove}`)
         displayProjectList()
-        console.log('at titlechange: ', localStorage)
     }
 }
 
@@ -121,14 +116,10 @@ export function getFromLocalStorage() {
     for (let i = 0; i < localStorage.length; i++) {
         projects.push(JSON.parse(localStorage.getItem(localStorage.key(i))))
     }
-    console.log('localStorage: ', localStorage)
 }
 function removeFromLocalStorage(item) {
-    console.log('key:', localStorage.getItem(item))
-    console.log('key:', item, typeof item)
     localStorage.removeItem(item);
 }
 
 // export function listenForDelete() {
-//     document.getElementsByClassName('delete-button').addEventListener('click', () => { console.log('yipp') })
 // }
