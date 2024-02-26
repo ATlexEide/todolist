@@ -150,7 +150,7 @@ export function displayNotes() {
         deleteIcon.setAttribute('aria-hidden', 'true');
         deleteBtn.appendChild(deleteIcon)
         header.appendChild(h2)
-        noteLi.appendChild(deleteBtn)
+        header.appendChild(deleteBtn)
         noteLi.appendChild(header)
         noteLi.appendChild(p)
         if (note.priority !== 'none') {
