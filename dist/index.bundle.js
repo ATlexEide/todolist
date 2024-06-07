@@ -93,7 +93,7 @@ textarea {
 
 input::placeholder,
 textarea::placeholder {
-    color: rgb(230, 100, 100);
+    color: rgb(248, 248, 248);
 }
 
 form input,
@@ -107,7 +107,12 @@ form button {
 textarea,
 input,
 select {
-    background-color: rgb(26, 26, 26);
+    background-color: rgb(36, 36, 36);
+}
+
+#addProjectPriority,
+#addNotePriority {
+    color: white;
 }
 
 #addNoteButton,
@@ -155,8 +160,8 @@ select {
 }
 
 .delete-note-button {
-    top: 4px;
-    left: 198px;
+    top: 0px;
+    left: 0px;
 }
 
 .delete-project-button:hover,
@@ -254,7 +259,7 @@ h5 {
 
 a {
     text-decoration: none;
-}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,0BAA0B;IAC1B,sCAAsC;IACtC,yBAAyB;IACzB,uBAAuB;AAC3B;;AAEA;IACI,gDAAgD;AACpD;;AAEA;IACI,mCAAmC;AACvC;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,iHAAiH;IACjH,6BAA6B;IAC7B,oCAAoC;;AAExC;;AAEA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;;IAEI,YAAY;IACZ,WAAW;IACX,qBAAqB;AACzB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,YAAY;IACZ,aAAa;IACb,sBAAsB;AAC1B;;AAEA;;;IAGI,mCAAmC;IACnC,YAAY;AAChB;;AAEA;;;;;IAKI,YAAY;AAChB;;AAEA;;IAEI,yBAAyB;AAC7B;;AAEA;;;;IAII,cAAc;IACd,YAAY;AAChB;;AAEA;;;IAGI,iCAAiC;AACrC;;AAEA;;IAEI,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;IAEI,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,mFAAmF;IACnF,iBAAiB;IACjB,sCAAsC;IACtC,kBAAkB;IAClB,iBAAiB;IACjB,kBAAkB;IAClB,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;;IAEI,kBAAkB;IAClB,uBAAuB;IACvB,kBAAkB;IAClB,eAAe;IACf,YAAY;AAChB;;;AAGA;IACI,WAAW;IACX,WAAW;AACf;;AAEA;IACI,QAAQ;IACR,WAAW;AACf;;AAEA;;IAEI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;;AAE3B;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,YAAY;IACZ,mCAAmC;IACnC,mCAAmC;IACnC,YAAY;IACZ,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;;;IAGI,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,iCAAiC;IACjC,YAAY;IACZ,eAAe;IACf,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,oCAAoC;AACxC;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,iCAAiC;IACjC,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,aAAa;AACjB;;AAEA;;IAEI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,qBAAqB;AACzB","sourcesContent":[":root {\n    --main-color: rgb(20, 17, 17);\n    --card-color: rgb(0, 0, 0);\n    --card-border-color: rgb(113, 71, 126);\n    --gradient-sides: #7a7a7a;\n    --gradient-mid: #ffffff;\n}\n\n* {\n    font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n\nbody {\n    background-color: var(--main-color);\n}\n\nheader {\n    text-align: center;\n    color: white;\n}\n\nheader h1 {\n    background: linear-gradient(90deg, var(--gradient-sides) 40%, var(--gradient-mid) 50%, var(--gradient-sides) 60%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n\n}\n\n#project-container {\n    padding: 48px;\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#project-list {\n    display: flex;\n    flex-wrap: wrap;\n}\n\nul,\nli {\n    padding: 0px;\n    margin: 0px;\n    list-style-type: none;\n}\n\n\n#addProjectForm {\n    width: 20vw;\n    height: 50vh;\n    color: black;\n    display: flex;\n    flex-direction: column;\n}\n\nform,\ndialog,\nfieldset {\n    background-color: var(--main-color);\n    border: none;\n}\n\nlabel,\nlegend,\ninput,\noption,\ntextarea {\n    color: white;\n}\n\ninput::placeholder,\ntextarea::placeholder {\n    color: rgb(230, 100, 100);\n}\n\nform input,\nform label,\nform textarea,\nform button {\n    padding: .5rem;\n    width: 200px;\n}\n\ntextarea,\ninput,\nselect {\n    background-color: rgb(26, 26, 26);\n}\n\n#addNoteButton,\n#addProjectBtn {\n    border: solid 2px white;\n    margin-right: auto;\n}\n\n#addNoteButton:hover,\n#addProjectBtn:hover {\n    cursor: pointer;\n}\n\n.card {\n    color: white;\n    background: linear-gradient(-30deg, rgba(15, 15, 15, .9) 0%, rgb(0, 0, 0, 0.4) 55%);\n    border: solid 2px;\n    border-color: var(--card-border-color);\n    border-radius: 7px;\n    margin-left: 20px;\n    padding-left: 10px;\n    width: 250px;\n    height: 250px;\n}\n\n.card header {\n    display: flex;\n    justify-content: space-between;\n    padding: 4px;\n}\n\n.delete-project-button,\n.delete-note-button {\n    position: relative;\n    border: solid 1px black;\n    border-radius: 5px;\n    aspect-ratio: 1;\n    height: 48px;\n}\n\n\n.delete-project-button {\n    top: -248px;\n    left: 230px;\n}\n\n.delete-note-button {\n    top: 4px;\n    left: 198px;\n}\n\n.delete-project-button:hover,\n.delete-note-button:hover {\n    background-color: red;\n}\n\nbutton .card {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n#projectInfo {\n    width: 100vw;\n    height: 100vh;\n    border: none;\n    background-color: rgb(165, 30, 113);\n    background-color: var(--main-color);\n    opacity: .99;\n    color: white;\n}\n\n#project-dialog-form {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n#projectInfo h2 {\n    text-align: center;\n}\n\n#projectInfo h3,\nh4,\nh5 {\n    font-size: 18px;\n}\n\n#project-dialog-form input {\n    width: 400px;\n    background-color: rgb(0, 0, 0, 0);\n    border: none;\n    font-size: 18px;\n    color: white;\n    font-size: 38px;\n    text-align: center;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n#project-note-container {\n    display: flex;\n}\n\n#dialog-header {\n    display: grid;\n    grid-template-columns: 50px 1fr 50px;\n}\n\n#exit-button {\n    width: min-content;\n    height: min-content;\n    background-color: rgb(0, 0, 0, 0);\n    border: none;\n}\n\n#project-note-container {\n    padding: 48px;\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#note-list {\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#addNoteDialog form {\n    display: flex;\n    flex-direction: column;\n    width: 350px;\n    height: 400px;\n}\n\n#addNoteDialog input,\n#addNoteDialog textarea {\n    width: 90%;\n}\n\n#addNoteDialog select {\n    width: 50%;\n}\n\na {\n    text-decoration: none;\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/css/style.css"],"names":[],"mappings":"AAAA;IACI,6BAA6B;IAC7B,0BAA0B;IAC1B,sCAAsC;IACtC,yBAAyB;IACzB,uBAAuB;AAC3B;;AAEA;IACI,gDAAgD;AACpD;;AAEA;IACI,mCAAmC;AACvC;;AAEA;IACI,kBAAkB;IAClB,YAAY;AAChB;;AAEA;IACI,iHAAiH;IACjH,6BAA6B;IAC7B,oCAAoC;;AAExC;;AAEA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;;IAEI,YAAY;IACZ,WAAW;IACX,qBAAqB;AACzB;;;AAGA;IACI,WAAW;IACX,YAAY;IACZ,YAAY;IACZ,aAAa;IACb,sBAAsB;AAC1B;;AAEA;;;IAGI,mCAAmC;IACnC,YAAY;AAChB;;AAEA;;;;;IAKI,YAAY;AAChB;;AAEA;;IAEI,yBAAyB;AAC7B;;AAEA;;;;IAII,cAAc;IACd,YAAY;AAChB;;AAEA;;;IAGI,iCAAiC;AACrC;;AAEA;;IAEI,YAAY;AAChB;;AAEA;;IAEI,uBAAuB;IACvB,kBAAkB;AACtB;;AAEA;;IAEI,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,mFAAmF;IACnF,iBAAiB;IACjB,sCAAsC;IACtC,kBAAkB;IAClB,iBAAiB;IACjB,kBAAkB;IAClB,YAAY;IACZ,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,8BAA8B;IAC9B,YAAY;AAChB;;AAEA;;IAEI,kBAAkB;IAClB,uBAAuB;IACvB,kBAAkB;IAClB,eAAe;IACf,YAAY;AAChB;;;AAGA;IACI,WAAW;IACX,WAAW;AACf;;AAEA;IACI,QAAQ;IACR,SAAS;AACb;;AAEA;;IAEI,qBAAqB;AACzB;;AAEA;IACI,aAAa;IACb,mBAAmB;IACnB,uBAAuB;;AAE3B;;AAEA;IACI,YAAY;IACZ,aAAa;IACb,YAAY;IACZ,mCAAmC;IACnC,mCAAmC;IACnC,YAAY;IACZ,YAAY;AAChB;;AAEA;IACI,WAAW;IACX,aAAa;IACb,sBAAsB;AAC1B;;AAEA;IACI,kBAAkB;AACtB;;AAEA;;;IAGI,eAAe;AACnB;;AAEA;IACI,YAAY;IACZ,iCAAiC;IACjC,YAAY;IACZ,eAAe;IACf,YAAY;IACZ,eAAe;IACf,kBAAkB;IAClB,iBAAiB;IACjB,kBAAkB;AACtB;;AAEA;IACI,aAAa;AACjB;;AAEA;IACI,aAAa;IACb,oCAAoC;AACxC;;AAEA;IACI,kBAAkB;IAClB,mBAAmB;IACnB,iCAAiC;IACjC,YAAY;AAChB;;AAEA;IACI,aAAa;IACb,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,eAAe;AACnB;;AAEA;IACI,aAAa;IACb,sBAAsB;IACtB,YAAY;IACZ,aAAa;AACjB;;AAEA;;IAEI,UAAU;AACd;;AAEA;IACI,UAAU;AACd;;AAEA;IACI,qBAAqB;AACzB","sourcesContent":[":root {\n    --main-color: rgb(20, 17, 17);\n    --card-color: rgb(0, 0, 0);\n    --card-border-color: rgb(113, 71, 126);\n    --gradient-sides: #7a7a7a;\n    --gradient-mid: #ffffff;\n}\n\n* {\n    font-family: Verdana, Geneva, Tahoma, sans-serif;\n}\n\nbody {\n    background-color: var(--main-color);\n}\n\nheader {\n    text-align: center;\n    color: white;\n}\n\nheader h1 {\n    background: linear-gradient(90deg, var(--gradient-sides) 40%, var(--gradient-mid) 50%, var(--gradient-sides) 60%);\n    -webkit-background-clip: text;\n    -webkit-text-fill-color: transparent;\n\n}\n\n#project-container {\n    padding: 48px;\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#project-list {\n    display: flex;\n    flex-wrap: wrap;\n}\n\nul,\nli {\n    padding: 0px;\n    margin: 0px;\n    list-style-type: none;\n}\n\n\n#addProjectForm {\n    width: 20vw;\n    height: 50vh;\n    color: black;\n    display: flex;\n    flex-direction: column;\n}\n\nform,\ndialog,\nfieldset {\n    background-color: var(--main-color);\n    border: none;\n}\n\nlabel,\nlegend,\ninput,\noption,\ntextarea {\n    color: white;\n}\n\ninput::placeholder,\ntextarea::placeholder {\n    color: rgb(248, 248, 248);\n}\n\nform input,\nform label,\nform textarea,\nform button {\n    padding: .5rem;\n    width: 200px;\n}\n\ntextarea,\ninput,\nselect {\n    background-color: rgb(36, 36, 36);\n}\n\n#addProjectPriority,\n#addNotePriority {\n    color: white;\n}\n\n#addNoteButton,\n#addProjectBtn {\n    border: solid 2px white;\n    margin-right: auto;\n}\n\n#addNoteButton:hover,\n#addProjectBtn:hover {\n    cursor: pointer;\n}\n\n.card {\n    color: white;\n    background: linear-gradient(-30deg, rgba(15, 15, 15, .9) 0%, rgb(0, 0, 0, 0.4) 55%);\n    border: solid 2px;\n    border-color: var(--card-border-color);\n    border-radius: 7px;\n    margin-left: 20px;\n    padding-left: 10px;\n    width: 250px;\n    height: 250px;\n}\n\n.card header {\n    display: flex;\n    justify-content: space-between;\n    padding: 4px;\n}\n\n.delete-project-button,\n.delete-note-button {\n    position: relative;\n    border: solid 1px black;\n    border-radius: 5px;\n    aspect-ratio: 1;\n    height: 48px;\n}\n\n\n.delete-project-button {\n    top: -248px;\n    left: 230px;\n}\n\n.delete-note-button {\n    top: 0px;\n    left: 0px;\n}\n\n.delete-project-button:hover,\n.delete-note-button:hover {\n    background-color: red;\n}\n\nbutton .card {\n    display: flex;\n    align-items: center;\n    justify-content: center;\n\n}\n\n#projectInfo {\n    width: 100vw;\n    height: 100vh;\n    border: none;\n    background-color: rgb(165, 30, 113);\n    background-color: var(--main-color);\n    opacity: .99;\n    color: white;\n}\n\n#project-dialog-form {\n    width: 100%;\n    display: flex;\n    flex-direction: column;\n}\n\n#projectInfo h2 {\n    text-align: center;\n}\n\n#projectInfo h3,\nh4,\nh5 {\n    font-size: 18px;\n}\n\n#project-dialog-form input {\n    width: 400px;\n    background-color: rgb(0, 0, 0, 0);\n    border: none;\n    font-size: 18px;\n    color: white;\n    font-size: 38px;\n    text-align: center;\n    margin-left: auto;\n    margin-right: auto;\n}\n\n#project-note-container {\n    display: flex;\n}\n\n#dialog-header {\n    display: grid;\n    grid-template-columns: 50px 1fr 50px;\n}\n\n#exit-button {\n    width: min-content;\n    height: min-content;\n    background-color: rgb(0, 0, 0, 0);\n    border: none;\n}\n\n#project-note-container {\n    padding: 48px;\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#note-list {\n    display: flex;\n    flex-wrap: wrap;\n}\n\n#addNoteDialog form {\n    display: flex;\n    flex-direction: column;\n    width: 350px;\n    height: 400px;\n}\n\n#addNoteDialog input,\n#addNoteDialog textarea {\n    width: 90%;\n}\n\n#addNoteDialog select {\n    width: 50%;\n}\n\na {\n    text-decoration: none;\n}"],"sourceRoot":""}]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -866,7 +871,7 @@ function displayNotes() {
         deleteIcon.setAttribute('aria-hidden', 'true');
         deleteBtn.appendChild(deleteIcon)
         header.appendChild(h2)
-        noteLi.appendChild(deleteBtn)
+        header.appendChild(deleteBtn)
         noteLi.appendChild(header)
         noteLi.appendChild(p)
         if (note.priority !== 'none') {
@@ -1056,6 +1061,24 @@ function removeFromLocalStorage(item) {
 
 // export function listenForDelete() {
 // }
+
+// Get current date
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth() + 1;
+const yyyy = today.getFullYear();
+if (dd < 10) {
+    dd = '0' + dd
+}
+if (mm < 10) {
+    mm = '0' + mm
+}
+// Set min attribute on inputs with type = date to today
+today = yyyy + '-' + mm + '-' + dd;
+const datePickers = document.querySelectorAll('input[type=date]');
+for (const datePicker of datePickers) {
+    datePicker.min = today;
+}
 
 /***/ })
 
