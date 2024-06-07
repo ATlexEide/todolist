@@ -153,3 +153,21 @@ function removeFromLocalStorage(item) {
 
 // export function listenForDelete() {
 // }
+
+// Get current date
+let today = new Date();
+let dd = today.getDate();
+let mm = today.getMonth() + 1;
+const yyyy = today.getFullYear();
+if (dd < 10) {
+    dd = '0' + dd
+}
+if (mm < 10) {
+    mm = '0' + mm
+}
+// Set min attribute on inputs with type = date to today
+today = yyyy + '-' + mm + '-' + dd;
+const datePickers = document.querySelectorAll('input[type=date]');
+for (const datePicker of datePickers) {
+    datePicker.min = today;
+}
