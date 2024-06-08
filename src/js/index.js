@@ -68,10 +68,7 @@ export function getIdOfClickedElementAndDelete() {
     const buttonPressed = e => {
         let id = e.currentTarget.id;
         id = id.split("-").pop()
-        console.log('id: ', id = id.split("-").pop())
         deleteProject(id)
-        console.clear()
-        console.log(`Clicked: ${id}`)
     }
     for (let button of buttons) {
         button.addEventListener("click", buttonPressed);
@@ -82,10 +79,7 @@ export function getIdOfAndDeleteNote() {
     const buttonPressed = e => {
         let id = e.currentTarget.id;
         id = id.split("-").pop()
-        console.log('id: ', id = id.split("-").pop())
         deleteNote(id)
-        console.clear()
-        console.log(`Clicked: ${id}`)
     }
     for (let button of buttons) {
         button.addEventListener("click", buttonPressed);
@@ -101,7 +95,6 @@ function deleteProject(id) {
 };
 function deleteNote(id) {
     const array = projects[currIndex].notes;
-    console.log(id)
     array.splice(id, 1)
     displayNotes()
 }
